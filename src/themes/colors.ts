@@ -1,6 +1,6 @@
 enum Colours {
-    westBridgfordBlue = "#024290",
-    westBridgfordBlack = "#000000"
+    WEST_BRIDGFORD_BLUE = "#024290",
+    WEST_BRIDGFORD_BLACK = "#000000"
 };
 
 

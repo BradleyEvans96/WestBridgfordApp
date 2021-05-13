@@ -1,20 +1,42 @@
 import React from 'react';
 import Svg, { Rect } from 'react-native-svg';
+import { View, StyleSheet } from 'react-native';
+
+export type Props = {
+  width: number
+  height: number
+  numberOfStripes: number
+  stripeColour: string
+  backgroundColour: string
+}
+
+const Stripes: React.FC<Props> = ({  
+  width,
+  height,
+  numberOfStripes,
+  stripeColour,
+  backgroundColour
+}) => {
+
+  const totalStripes = (numberOfStripes * 2) + 1
+
+  const stripeWidth = width / totalStripes;
+
+  return (
+    <View>
+      <Svg height= { height } width= { width }>
+        <Rect width="100%" height={ height } fill={ backgroundColour } opacity="1" />
+        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(1, stripeWidth) }/>
+        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(3, stripeWidth) }/>
+        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(5, stripeWidth) }/>
+      </Svg>
+    </View>
+  )
+}
 
 
-function stripe_start_position(position:number,strip_width:number){
-    const calc = 0 + (position * strip_width)
-    return String(calc)
-  };
+function getStripeStartPosition(position: number, stripeWidth: number): number {
+    return 0 + (position * stripeWidth)
+};
   
-function stripes(object_width:string, object_height:string, numOfStripes: number, stripe_colour:string, background_colour:string) {
-    const stripes_width = 100/numOfStripes;
-    return(<Svg height= {object_height} width= {object_width} viewBox="0 0 100 100">
-          <Rect width="100%" height="100%" fill={background_colour} opacity="1" />
-          <Rect width={stripes_width} height="100%" fill= {stripe_colour} opacity="1" x = {stripe_start_position(1,stripes_width)}/>
-          <Rect width={stripes_width} height="100%" fill= {stripe_colour} opacity="1" x = {stripe_start_position(3,stripes_width)}/>
-          <Rect width={stripes_width} height="100%" fill= {stripe_colour} opacity="1" x = {stripe_start_position(5,stripes_width)}/>
-    </Svg>)
-  };
-
-export default stripes;
+export default Stripes;
