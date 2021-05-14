@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import Stripes from './Stripes';
+import Stripes from './stripes';
 import Colours from '../themes/colors'
 import { Dimensions } from 'react-native';
 
@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ name }) => {
     <View style={styles.header}>
         <Stripes 
           width={windowWidth} 
-          height={64} 
+
           numberOfStripes={3} 
           backgroundColour={Colours.WEST_BRIDGFORD_BLUE} 
           stripeColour={Colours.WEST_BRIDGFORD_BLACK} 

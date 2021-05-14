@@ -10,17 +10,22 @@ import colors from './src/themes/colors';
 import HomeScreen from './src/screens/HomeScreen';
 import TesterScreen from './src/screens/TesterScreen';
 import Header from './src/components/Header'
-
+import Stripes from './src/components/stripes';
+import { Dimensions } from 'react-native';
 const Stack = createStackNavigator();
-
+const windowWidth = Dimensions.get('window').width;
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name = "Home" component={HomeScreen} options={{ headerTitle: () => <Header name="Home" />  }}/>
+      <Stack.Navigator screenOptions={{headerBackground: () => <Stripes 
+          width={windowWidth} 
+          numberOfStripes={3} 
+          backgroundColour={colors.WEST_BRIDGFORD_BLUE} 
+          stripeColour={colors.WEST_BRIDGFORD_BLACK} 
+        />}}>
+        <Stack.Screen name = "Home" component={HomeScreen}/>
         <Stack.Screen name = "Tester" component={TesterScreen}/>
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }

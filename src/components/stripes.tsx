@@ -4,7 +4,6 @@ import { View, StyleSheet } from 'react-native';
 
 export type Props = {
   width: number
-  height: number
   numberOfStripes: number
   stripeColour: string
   backgroundColour: string
@@ -12,7 +11,6 @@ export type Props = {
 
 const Stripes: React.FC<Props> = ({  
   width,
-  height,
   numberOfStripes,
   stripeColour,
   backgroundColour
@@ -24,11 +22,11 @@ const Stripes: React.FC<Props> = ({
 
   return (
     <View>
-      <Svg height= { height } width= { width }>
-        <Rect width="100%" height={ height } fill={ backgroundColour } opacity="1" />
-        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(1, stripeWidth) }/>
-        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(3, stripeWidth) }/>
-        <Rect width={stripeWidth} height={height} fill= {stripeColour} opacity="1" x = { getStripeStartPosition(5, stripeWidth) }/>
+      <Svg height= "100%" width= { width }>
+        <Rect width="100%" height="100%" fill={ backgroundColour } opacity="1" />
+        <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(1, stripeWidth) }/>
+        <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(3, stripeWidth) }/>
+        <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(5, stripeWidth) }/>
       </Svg>
     </View>
   )
