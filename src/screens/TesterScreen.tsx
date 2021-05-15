@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import MasterStackHeader from '../components/MasterStackHeader';
 
 const TesterScreen : React.FC = () => {
     return (
@@ -9,7 +10,13 @@ const TesterScreen : React.FC = () => {
     );
 };
 
-export default TesterScreen;
+const TesterStackScreen : React.FC = ({navigation}:any) => {
+    return (
+        <MasterStackHeader name = "Home" screenComponent = {TesterScreen} navigation = {navigation} />
+    )
+};
+
+export default TesterStackScreen;
 
 const styles = StyleSheet.create({
     TesterScreen: {

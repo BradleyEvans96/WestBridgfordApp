@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import MasterStackHeader from '../components/MasterStackHeader';
 
 const HomeScreen : React.FC = ({navigation}:any) => {
     return (
@@ -10,7 +11,12 @@ const HomeScreen : React.FC = ({navigation}:any) => {
     );
 };
 
-export default HomeScreen;
+const HomeStackScreen : React.FC = ({navigation}:any) => {
+    return (
+        <MasterStackHeader name = "Home" screenComponent = {HomeScreen} navigation = {navigation} />
+    )
+};
+export default HomeStackScreen;
 
 const styles = StyleSheet.create({
     HomeScreen: {
