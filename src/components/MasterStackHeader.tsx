@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View, Dimensions} from 'react-native'
+import { StyleSheet, Dimensions} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Stripes from './stripes';
 import colors from '../themes/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import WBCFCLogo from './WBLogo';
+import WBHeaderBackground from './WBHeaderBackground';
 
 const Stack = createStackNavigator();
 
@@ -17,43 +18,23 @@ export type Props = {
 const StackScreen: React.FC<Props> = ({name, screenComponent, navigation}) => {
     const windowWidth = Dimensions.get('window').width;
     return (
-        <Stack.Navigator screenOptions={{headerBackground: () => <Stripes 
-            width={windowWidth} 
-            numberOfStripes={3} 
-            backgroundColour={colors.WEST_BRIDGFORD_BLUE} 
-            stripeColour={colors.WEST_BRIDGFORD_BLACK} 
-          />}}>
-        <Stack.Screen name = {name} component = {screenComponent} options = {{
-          headerLeft: () => (
-            <Icon.Button name = "ios-menu" size = {40} backgroundColor = "transparent" onPress = {() => navigation.openDrawer()}/>
+        <Stack.Navigator screenOptions={{headerTitleStyle: {color:'white'}, headerTitleAlign:'left', headerBackground: () => <Stripes 
+          width={windowWidth} 
+          numberOfStripes={3} 
+          backgroundColour={colors.WEST_BRIDGFORD_BLUE}
+          stripeColour={colors.WEST_BRIDGFORD_BLACK} 
+        />, headerLeft: () => (
+            <Icon.Button name = "ios-menu" size = {30} backgroundColor = "transparent" onPress = {() => navigation.openDrawer()}/>
+          ),
+          headerRight: () => (
+            <WBCFCLogo height = {styles.headerIcons.height} width = {styles.headerIcons.width} />
           )
-        }} />
+          }}>
+        <Stack.Screen name = {name} component = {screenComponent}/>
         </Stack.Navigator>
     )
   };
 
-// export type Props = {
-//   name: string
-// }
-
-// const Header: React.FC<Props> = ({ name }) => {
-//   const windowWidth = Dimensions.get('window').width;
-
-//   return (
-//     <View style={styles.header}>
-//         <Stripes 
-//           width={windowWidth} 
-
-//           numberOfStripes={3} 
-//           backgroundColour={Colours.WEST_BRIDGFORD_BLUE} 
-//           stripeColour={Colours.WEST_BRIDGFORD_BLACK} 
-//         />
-//         <View style={styles.textWrapper}>
-//           <Text style={styles.headerText}>{name}</Text>
-//         </View>
-//     </View>
-//   )
-// }
 
 export default StackScreen;
 
@@ -79,5 +60,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 1,
     color: 'white'
+  },
+  headerIcons: {
+    height: 40,
+    width: 40
   }
 })

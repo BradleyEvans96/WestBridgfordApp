@@ -2,24 +2,24 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 
-const TesterScreen : React.FC = () => {
+const Availability : React.FC = () => {
     return (
-        <View style = {styles.TesterScreen}>
+        <View style = {styles.AvailabilityScreen}>
             <Text> Congrats you made it to the Tester Screen </Text>
         </View>
     );
 };
 
-const TesterStackScreen : React.FC = ({navigation}:any) => {
+const AvailabilityStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {TesterScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Availability" screenComponent = {Availability} navigation = {navigation} />
     )
 };
 
-export default TesterStackScreen;
+export default AvailabilityStackScreen;
 
 const styles = StyleSheet.create({
-    TesterScreen: {
+    AvailabilityScreen: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',

@@ -2,24 +2,24 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 
-const TesterScreen : React.FC = () => {
+const VideoScreen : React.FC = () => {
     return (
-        <View style = {styles.TesterScreen}>
+        <View style = {styles.VideoScreen}>
             <Text> Congrats you made it to the Tester Screen </Text>
         </View>
     );
 };
 
-const TesterStackScreen : React.FC = ({navigation}:any) => {
+const VideoStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {TesterScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Tester" screenComponent = {VideoScreen} navigation = {navigation} />
     )
 };
 
-export default TesterStackScreen;
+export default VideoStackScreen;
 
 const styles = StyleSheet.create({
-    TesterScreen: {
+    VideoScreen: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',

@@ -21,14 +21,12 @@ const Stripes: React.FC<Props> = ({
   const stripeWidth = width / totalStripes;
 
   return (
-    <View>
       <Svg height= "100%" width= { width }>
         <Rect width="100%" height="100%" fill={ backgroundColour } opacity="1" />
         <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(1, stripeWidth) }/>
         <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(3, stripeWidth) }/>
         <Rect width={stripeWidth} height="100%" fill= {stripeColour} opacity="1" x = { getStripeStartPosition(5, stripeWidth) }/>
       </Svg>
-    </View>
   )
 }
 

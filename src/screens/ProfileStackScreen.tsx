@@ -2,24 +2,24 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 
-const TesterScreen : React.FC = () => {
+const ProfileScreen : React.FC = () => {
     return (
-        <View style = {styles.TesterScreen}>
-            <Text> Congrats you made it to the Tester Screen </Text>
+        <View style = {styles.ProfileScreen}>
+            <Text> Profile Screen </Text>
         </View>
     );
 };
 
-const TesterStackScreen : React.FC = ({navigation}:any) => {
+const ProfileStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {TesterScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Tester" screenComponent = {ProfileScreen} navigation = {navigation} />
     )
 };
 
-export default TesterStackScreen;
+export default ProfileStackScreen;
 
 const styles = StyleSheet.create({
-    TesterScreen: {
+    ProfileScreen: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',

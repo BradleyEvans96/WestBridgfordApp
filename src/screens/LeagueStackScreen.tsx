@@ -2,24 +2,24 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 
-const TesterScreen : React.FC = () => {
+const LeagueScreen : React.FC = () => {
     return (
-        <View style = {styles.TesterScreen}>
-            <Text> Congrats you made it to the Tester Screen </Text>
+        <View style = {styles.LeagueScreen}>
+            <Text> League Screen </Text>
         </View>
     );
 };
 
-const TesterStackScreen : React.FC = ({navigation}:any) => {
+const LeagueStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {TesterScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Tester" screenComponent = {LeagueScreen} navigation = {navigation} />
     )
 };
 
-export default TesterStackScreen;
+export default LeagueStackScreen;
 
 const styles = StyleSheet.create({
-    TesterScreen: {
+    LeagueScreen: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
