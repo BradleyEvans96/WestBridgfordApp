@@ -1,11 +1,10 @@
 import React from 'react'
 import { StyleSheet, Dimensions} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Stripes from './stripes';
+import Stripes from './Stripes';
 import colors from '../themes/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import WBCFCLogo from './WBLogo';
-import WBHeaderBackground from './WBHeaderBackground';
 
 const Stack = createStackNavigator();
 
