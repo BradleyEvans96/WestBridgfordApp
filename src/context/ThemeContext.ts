@@ -7,8 +7,6 @@ export enum Theme {
   Default = Light
 }
 
-export const DEFAULT_THEME = Theme.Light;
-
 /*
  * A type that represents our Context.
  * Our Context has a currently selected theme (theme).
@@ -19,10 +17,15 @@ export type ThemeContextType = {
   setTheme: (Theme: Theme) => void;
 }
 
-// Create the context that will be used
-// Not sure how we set the provider?
-export const ThemeContext = createContext<ThemeContextType>({ theme: Theme.Dark, setTheme: theme => console.warn('no theme provider')});
+/*
+ * Create the context that will be used, with some default values.
+ * These default values will never be used. When we use this context as a Provider we are forced
+ * to provide an actual value with the 'value' prop.
+*/
+export const ThemeContext = createContext<ThemeContextType>({ 
+    theme: Theme.Dark, 
+    setTheme: _theme => console.warn('no theme provider')
+  });
 
 // This will return the instance of the ThemeContext that has been configured
 export const useTheme = () => useContext(ThemeContext);
-

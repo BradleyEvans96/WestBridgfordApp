@@ -32,7 +32,6 @@ const SettingsScreen : React.FC = () => {
             <View style = {styles.eachSetting}>
             <Text> Setting Two</Text>
             </View>
-            <Text> Current Theme: { theme }</Text>
             </View>
         </View>
     );
