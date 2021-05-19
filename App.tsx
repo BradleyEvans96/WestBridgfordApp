@@ -7,17 +7,19 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 
 // import pages
-import HomeStackScreen from './src/screens/HomeStackScreen';
-import ProfileStackScreen from './src/screens/ProfileStackScreen';
-import SquadStackScreen from './src/screens/SquadStackScreen';
-import AvailabilityStackScreen from './src/screens/AvailabilityStackScreen';
-import LeagueStackScreen from './src/screens/LeagueStackScreen';
-import FixturesStackScreen from './src/screens/FixturesStackScreen';
-import ResultsStackScreen from './src/screens/ResultsStackScreen';
-import VideosStackScreen from './src/screens/VideosStackScreen';
-import ChatStackScreen from './src/screens/ChatStackScreen';
-import ManagerStackScreen from './src/screens/ManagerStackScreen';
-import SettingsStackScreen from './src/screens/SettingsStackScreen';
+import {
+  HomeStackScreen, 
+  ProfileStackScreen, 
+  SquadStackScreen,
+  AvailabilityStackScreen,
+  LeagueStackScreen,
+  FixturesStackScreen, 
+  ResultsStackScreen, 
+  VideosStackScreen, 
+  ChatStackScreen, 
+  ManagerStackScreen,
+  SettingsStackScreen 
+} from './src/screens/';
 
 import { DrawerContent } from './src/components/DrawerContent';
 const Stack = createStackNavigator();
