@@ -12,7 +12,7 @@ const LeagueScreen : React.FC = () => {
 
 const LeagueStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {LeagueScreen} navigation = {navigation} />
+        <MasterStackHeader name = "League" screenComponent = {LeagueScreen} navigation = {navigation} />
     )
 };
 

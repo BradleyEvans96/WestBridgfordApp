@@ -12,7 +12,7 @@ const ResultsScreen : React.FC = () => {
 
 const ResultsStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {ResultsScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Results" screenComponent = {ResultsScreen} navigation = {navigation} />
     )
 };
 

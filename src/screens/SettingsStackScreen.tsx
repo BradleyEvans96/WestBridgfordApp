@@ -9,34 +9,50 @@ const SettingsScreen : React.FC = () => {
         setIsDarkTheme(!isDarkTheme);
     }
     return (
-        <View style = {styles.SettingsScreen}>
-            <Text> Congrats you made it to the Tester Screen </Text>
+        <View style = {styles.screen}>
+            <View style = {styles.SettingsScreen}>
+            <View style = {styles.eachSetting}>
+            <Text> Dark Theme</Text>
             <TouchableRipple onPress={()=> {toggleTheme()}}>
-                            <View>
-                                <View pointerEvents="none">
-                                    <Switch value = {isDarkTheme}/>
-                                </View>
-                                <Text> Dark Theme</Text>
-                            </View>
+                    <View pointerEvents="none">
+                        <Switch value = {isDarkTheme}/>
+                    </View>
             </TouchableRipple>
+            </View>
+            <View style = {styles.eachSetting}>
+            <Text> Setting Two</Text>
+            </View>
+            </View>
         </View>
     );
 };
 
 const SettingsStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {SettingsScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Settings" screenComponent = {SettingsScreen} navigation = {navigation} />
     )
 };
 
 export default SettingsStackScreen;
 
 const styles = StyleSheet.create({
-    SettingsScreen: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+    screen: {
+        flex: 1,
+        backgroundColor: '#fff',
     },
-  });
-  
+    SettingsScreen: {
+      justifyContent: 'flex-start',
+      flexDirection: 'column',
+      marginLeft: 20,
+      marginRight: 20,
+    },
+    eachSetting: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottomColor: '#f4f4f4',
+        borderBottomWidth: 1,
+        paddingTop: 20,
+        paddingBottom: 20,
+    }
+});

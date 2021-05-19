@@ -12,7 +12,7 @@ const ChatScreen : React.FC = () => {
 
 const ChatStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {ChatScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Chat" screenComponent = {ChatScreen} navigation = {navigation} />
     )
 };
 

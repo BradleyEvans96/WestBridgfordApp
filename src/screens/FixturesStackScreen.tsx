@@ -12,7 +12,7 @@ const FixtureScreen : React.FC = () => {
 
 const FixtureStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {FixtureScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Fixtures" screenComponent = {FixtureScreen} navigation = {navigation} />
     )
 };
 

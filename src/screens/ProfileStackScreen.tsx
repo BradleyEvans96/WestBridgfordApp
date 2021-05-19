@@ -12,7 +12,7 @@ const ProfileScreen : React.FC = () => {
 
 const ProfileStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {ProfileScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Profile" screenComponent = {ProfileScreen} navigation = {navigation} />
     )
 };
 

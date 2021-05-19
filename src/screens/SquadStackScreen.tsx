@@ -12,7 +12,7 @@ const SquadScreen : React.FC = () => {
 
 const SquadStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {SquadScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Squad" screenComponent = {SquadScreen} navigation = {navigation} />
     )
 };
 

@@ -12,7 +12,7 @@ const VideoScreen : React.FC = () => {
 
 const VideoStackScreen : React.FC = ({navigation}:any) => {
     return (
-        <MasterStackHeader name = "Tester" screenComponent = {VideoScreen} navigation = {navigation} />
+        <MasterStackHeader name = "Videos" screenComponent = {VideoScreen} navigation = {navigation} />
     )
 };
 
