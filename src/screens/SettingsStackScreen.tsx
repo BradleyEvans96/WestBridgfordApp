@@ -2,18 +2,28 @@ import * as React from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 import {Text, TouchableRipple, Switch} from 'react-native-paper';
-const SettingsScreen : React.FC = () => {
-    const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+import { useTheme, Theme } from '../context/ThemeContext';
 
-    const toggleTheme = () => {
-        setIsDarkTheme(!isDarkTheme);
+
+
+const SettingsScreen : React.FC = () => {
+    const { theme, setTheme } = useTheme();
+    const isDarkTheme = theme === Theme.Dark
+
+    const toggleTheme = (isDarkTheme: boolean) => {
+        if (isDarkTheme) {
+            setTheme(Theme.Light)
+        } else {
+            setTheme(Theme.Dark)
+        }
     }
+ 
     return (
         <View style = {styles.screen}>
             <View style = {styles.SettingsScreen}>
             <View style = {styles.eachSetting}>
             <Text> Dark Theme</Text>
-            <TouchableRipple onPress={()=> {toggleTheme()}}>
+            <TouchableRipple onPress={()=> {toggleTheme(isDarkTheme)}}>
                     <View pointerEvents="none">
                         <Switch value = {isDarkTheme}/>
                     </View>
@@ -22,6 +32,7 @@ const SettingsScreen : React.FC = () => {
             <View style = {styles.eachSetting}>
             <Text> Setting Two</Text>
             </View>
+            <Text> Current Theme: { theme }</Text>
             </View>
         </View>
     );

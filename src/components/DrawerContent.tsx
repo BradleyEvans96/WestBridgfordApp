@@ -9,10 +9,10 @@ import { Avatar, Title, Caption,
 
 class AppUser {
     name: string;
-    roles: [string];
+    roles: string[];
     isManager: boolean;
 
-    constructor(name: string, roles:[string],isManager:boolean)
+    constructor(name: string, roles: string[], isManager:boolean)
     {
         this.name = name;
         this.roles = roles;
@@ -23,10 +23,7 @@ class AppUser {
     }
 }
 
-const user = new AppUser("Bradley Evans",["Player, App Owner"],true)
-
-export type Props = {
-}
+const user = new AppUser("Bradley Evans", ["Player", "App Owner"], true)
 
 export function DrawerContent({navigation}:any){
     return(
