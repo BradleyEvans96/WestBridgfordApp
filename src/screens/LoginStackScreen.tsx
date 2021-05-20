@@ -8,6 +8,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../themes/colors';
+import { AuthContext } from '../context/AuthContext';
+import Users from '../model/Users';
 const LoginStack = createStackNavigator();
 
 const LoginStackScreen : React.FC = ({navigation}:any) => {
@@ -19,6 +21,8 @@ const LoginStackScreen : React.FC = ({navigation}:any) => {
 };
 
 const LoginScreen : React.FC = () => {
+    const { signIn } = React.useContext(AuthContext);
+    
     const [data, setData] = React.useState({
         email: '',
         password: '',
@@ -58,6 +62,15 @@ const LoginScreen : React.FC = () => {
             ...data,
             secureTextEntry: !data.secureTextEntry
         })
+    }
+
+    const loginHandle = (email:string, password: string)=>
+    {
+        const foundUser = Users.filter ( item => {
+            return email == item.email && password == item.password;
+        });
+
+        signIn(foundUser);
     }
 
     return (
@@ -136,7 +149,7 @@ const LoginScreen : React.FC = () => {
                 }
 
                 <View style = {styles.button}>
-                    <TouchableOpacity style={styles.signIn} onPress={()=>{}}>
+                    <TouchableOpacity style={styles.signIn} onPress={()=>{loginHandle(data.email,data.password)}}>
                     <LinearGradient
                     colors = {[colors.WEST_BRIDGFORD_BLUE_LIGHT,colors.WEST_BRIDGFORD_BLUE]}
                     style={styles.signIn}>

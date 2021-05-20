@@ -1,13 +1,15 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { InteractionManagerStatic, StyleSheet, Text, View, Dimensions } from 'react-native';
+import React, { useEffect } from 'react';
+import { InteractionManagerStatic, StyleSheet, Text, View, Dimensions, ActivityIndicator, AsyncStorage } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { ThemeContext, Theme } from './src/context/ThemeContext';
 import { Provider as PaperProvider } from 'react-native-paper';
 import LoginStack from './src/screens/LoginStackScreen';
+import {AuthContext, useAuth} from './src/context/AuthContext';
+// import AsyncStorage from '@react-native-community/async-storage';
 
 // import pages
 import {
@@ -34,12 +36,94 @@ export default function App() {
 
     const [theme, setTheme] = React.useState(Theme.Default);
 
+    const initialLoginState = {
+      isLoading: true,
+      userName: '',
+      userToken: '',
+    };
+
+    useEffect(() => {
+      setTimeout(async() => {
+        // setIsLoading(false);
+        let userToken;
+        userToken = null;
+        try {
+          userToken = await AsyncStorage.getItem('userToken');
+        } catch(e) {
+          console.log(e);
+        }
+        console.log('user token: ', userToken);
+        dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+      }, 1000);
+    }, []);
+
+    const loginReducer = (prevState:any, action:any) => {
+      switch( action.type ) {
+        case 'RETRIEVE_TOKEN': 
+          return {
+            ...prevState,
+            userToken: action.token,
+            isLoading: false,
+          };
+        case 'LOGIN': 
+          return {
+            ...prevState,
+            userName: action.id,
+            userToken: action.token,
+            isLoading: false,
+          };
+        case 'LOGOUT': 
+          return {
+            ...prevState,
+            userName: '',
+            userToken: '',
+            isLoading: false,
+          };
+      }
+    };
+  
+    const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+    
+    const authContext = React.useMemo(() => ({
+      signIn: async(foundUser:any) => {
+        // setUserToken('fgkj');
+        // setIsLoading(false); 
+        const userToken = String(foundUser[0].userToken);
+        const userName = foundUser[0].username;
+        
+        try {
+          await AsyncStorage.setItem('userToken', userToken);
+        } catch(e) {
+          console.log(e);
+        }
+        dispatch({ type: 'LOGIN', id: userName, token: userToken });
+      },
+      signOut: async() => {
+        try {
+          await AsyncStorage.removeItem('userToken');
+        } catch(e) {
+          console.log(e);
+        }
+        dispatch({ type: 'LOGOUT' });
+      }
+    }), []);
+
+
+    if (loginState.isLoading){
+      return(
+        <View style = {{flex:1, justifyContent: 'center', alignItems:'center'}}>
+          <ActivityIndicator size = 'large'/>
+        </View>
+      );
+    }
+
     return (
+      <AuthContext.Provider value = {authContext}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <PaperProvider theme = {themeMapper(theme)}>
           <NavigationContainer theme = {themeMapper(theme)}>
-          <LoginStack />
-            {/* <Drawer.Navigator drawerContent = {props => <DrawerContent {...props}/> }>
+            {loginState.userToken != '' ? (
+              <Drawer.Navigator drawerContent = {props => <DrawerContent {...props}/> }>
               <Stack.Screen name = "Home" component={HomeStackScreen}/>
               <Stack.Screen name = "Profile" component={ProfileStackScreen}/>
               <Stack.Screen name = "Squad" component={SquadStackScreen}/>
@@ -51,10 +135,14 @@ export default function App() {
               <Stack.Screen name = "Chat" component={ChatStackScreen}/>
               <Stack.Screen name = "Manager" component={ManagerStackScreen}/>
               <Stack.Screen name = "Settings" component={SettingsStackScreen}/>
-            </Drawer.Navigator>       */}
+            </Drawer.Navigator>
+            ):
+              <LoginStack />
+            }      
           </NavigationContainer>
         </PaperProvider>
       </ThemeContext.Provider>
+      </AuthContext.Provider>
     );
 }
 
