@@ -7,6 +7,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { ThemeContext, Theme } from './src/context/ThemeContext';
 import { Provider as PaperProvider } from 'react-native-paper';
+import LoginStack from './src/screens/LoginStackScreen';
 
 // import pages
 import {
@@ -37,7 +38,8 @@ export default function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <PaperProvider theme = {themeMapper(theme)}>
           <NavigationContainer theme = {themeMapper(theme)}>
-            <Drawer.Navigator drawerContent = {props => <DrawerContent {...props}/> }>
+          <LoginStack />
+            {/* <Drawer.Navigator drawerContent = {props => <DrawerContent {...props}/> }>
               <Stack.Screen name = "Home" component={HomeStackScreen}/>
               <Stack.Screen name = "Profile" component={ProfileStackScreen}/>
               <Stack.Screen name = "Squad" component={SquadStackScreen}/>
@@ -49,7 +51,7 @@ export default function App() {
               <Stack.Screen name = "Chat" component={ChatStackScreen}/>
               <Stack.Screen name = "Manager" component={ManagerStackScreen}/>
               <Stack.Screen name = "Settings" component={SettingsStackScreen}/>
-            </Drawer.Navigator>      
+            </Drawer.Navigator>       */}
           </NavigationContainer>
         </PaperProvider>
       </ThemeContext.Provider>
