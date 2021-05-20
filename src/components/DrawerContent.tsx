@@ -31,18 +31,16 @@ export default function DrawerContent({ navigation }: any) {
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...navigation}>
                 <View>
+                    {/* This should be it's own component */}
                     <View style={styles.userInfoSection}>
-                        <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                        <View style={styles.profileImage}>
+                            {/* require seems to be fround upon. We should find a better way to do this */}
                             <Avatar.Image
+                                // eslint-disable-next-line global-require
                                 source={require('../assets/NoProfileImage.png')}
                                 size={50}
                             />
-                            <View
-                                style={{
-                                    marginLeft: 15,
-                                    flexDirection: 'column'
-                                }}
-                            >
+                            <View style={styles.profileTitle}>
                                 <Title style={styles.title}>{user.name}</Title>
                                 <Caption style={styles.caption}>
                                     Player, Owner{' '}
@@ -50,6 +48,7 @@ export default function DrawerContent({ navigation }: any) {
                             </View>
                         </View>
                     </View>
+                    {/* This should be dynamically created */}
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -197,6 +196,7 @@ export default function DrawerContent({ navigation }: any) {
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
+            {/* Maybe also it's own component */}
             <Drawer.Section style={styles.bottomDrawerSection}>
                 <DrawerItem
                     icon={({ color, size }) => (
@@ -218,6 +218,14 @@ const styles = StyleSheet.create({
     drawerContent: {
         flex: 1,
         justifyContent: 'space-between'
+    },
+    profileTitle: {
+        marginLeft: 15,
+        flexDirection: 'column'
+    },
+    profileImage: {
+        flexDirection: 'row',
+        marginTop: 15
     },
     userInfoSection: {
         paddingLeft: 20

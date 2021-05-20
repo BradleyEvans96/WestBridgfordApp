@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
 
 const LeagueScreen: React.FC = () => (

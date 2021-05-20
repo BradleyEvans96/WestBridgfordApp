@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Rect } from 'react-native-svg';
-import { View, StyleSheet } from 'react-native';
 
 export type Props = {
     width: number;
@@ -8,6 +7,10 @@ export type Props = {
     stripeColour: string;
     backgroundColour: string;
 };
+
+function getStripeStartPosition(position: number, stripeWidth: number): number {
+    return 0 + position * stripeWidth;
+}
 
 const Stripes: React.FC<Props> = ({
     width,
@@ -51,9 +54,5 @@ const Stripes: React.FC<Props> = ({
         </Svg>
     );
 };
-
-function getStripeStartPosition(position: number, stripeWidth: number): number {
-    return 0 + position * stripeWidth;
-}
 
 export default Stripes;

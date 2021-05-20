@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
-import WBCFCLogo from '../components/WBLogo';
 
 const ManagerScreen: React.FC = () => (
     <View style={styles.HomeScreen}>

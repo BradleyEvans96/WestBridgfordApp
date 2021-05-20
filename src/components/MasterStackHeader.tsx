@@ -42,10 +42,7 @@ const StackScreen: React.FC<Props> = ({
                     />
                 ),
                 headerRight: () => (
-                    <WBCFCLogo
-                        height={styles.headerIcons.height}
-                        width={styles.headerIcons.width}
-                    />
+                    <WBCFCLogo size={styles.headerIcons.height} />
                 )
             }}
         >

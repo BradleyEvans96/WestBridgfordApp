@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, Switch } from 'react-native-paper';
 import MasterStackHeader from '../components/MasterStackHeader';
 import { useTheme, Theme } from '../context/ThemeContext';
@@ -8,8 +8,8 @@ const SettingsScreen: React.FC = () => {
     const { theme, setTheme } = useTheme();
     const isDarkTheme = theme === Theme.Dark;
 
-    const toggleTheme = (isDarkTheme: boolean) => {
-        if (isDarkTheme) {
+    const toggleTheme = (isDark: boolean) => {
+        if (isDark) {
             setTheme(Theme.Light);
         } else {
             setTheme(Theme.Dark);

@@ -1,16 +1,8 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {
-    InteractionManagerStatic,
-    StyleSheet,
-    Text,
-    View,
-    Dimensions
-} from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { ThemeContext, Theme } from './src/context/ThemeContext';
 
@@ -30,7 +22,7 @@ import {
 } from './src/screens';
 
 import DrawerContent from './src/components/DrawerContent';
-import { themeMapper } from './src/themes/CustomThemes';
+import themeMapper from './src/themes/ThemeMapper';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -89,17 +81,3 @@ export default function App() {
         </ThemeContext.Provider>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    topBar: {
-        flex: 1,
-        backgroundColor: '#024392',
-        alignItems: 'center'
-    }
-});

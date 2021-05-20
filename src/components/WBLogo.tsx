@@ -1,18 +1,9 @@
 import * as React from 'react';
 import Svg, { Defs, Path, G, Use } from 'react-native-svg';
+import { StyleSheet } from 'react-native';
 
-export type Props = {
-    width: number;
-    height: number;
-};
-
-const WBCFCLogo: React.FC<Props> = ({ width, height }) => (
-    <Svg
-        style={{ marginRight: 5, marginBottom: 5 }}
-        viewBox="0 0 512 512"
-        width={width}
-        height={height}
-    >
+const WBCFCLogo = ({ size }: { size: number }): JSX.Element => (
+    <Svg style={Styles.logo} viewBox="0 0 512 512" width={size} height={size}>
         <Defs>
             <Path
                 d="M268 12.15c37.34 1.92 74.21 12.67 106.73 31.12 35.29 19.92 65.49 48.66 87.03 83 18.65 29.51 30.85 63.1 35.33 97.73 2.17 14.62 2.09 29.26 1.84 44-1.75 37.24-12.2 73.99-30.38 106.54-19.78 35.65-48.6 66.12-83 87.99-34.61 21.94-74.61 35.09-115.55 37.43-10.32.14-20.68.21-31-.05-26.94-1.63-53.65-7.97-78.53-18.41-33.9-14.25-64.69-36.35-88.93-64.02C35.58 376.86 13.73 324.23 11 270c-.07-14.61-.66-29.67 1.39-44 5-40.89 20.62-80.36 44.99-113.57C94.61 61 152.26 25.16 215 15.05c17.54-3.08 35.23-3.49 53-2.9zm106.79 452.5c52.82-30.32 93.2-81.05 110.58-139.46 9.13-30.43 12.1-62.62 8.81-94.22-4.07-39-17.86-76.85-39.89-109.28C424.57 77.6 380.12 43.8 329.5 27.42c-30.29-10.01-62.72-13.71-94.49-11.07-39.83 3.21-78.68 16.64-112.02 38.65-29.8 19.55-55.19 45.85-73.71 76.3C29 164.39 17.1 202.45 14.74 241.18c-2.37 37.45 4.17 75.52 19.11 109.96 15.41 35.77 39.64 67.62 69.96 92.07 29.53 24.06 64.88 40.77 102.16 48.53 36.8 7.59 75.29 6.54 111.56-3.3 20.03-5.41 39.3-13.42 57.26-23.79z"
@@ -507,5 +498,12 @@ const WBCFCLogo: React.FC<Props> = ({ width, height }) => (
         <Use fill="#fefefe" xlinkHref="#aC" />
     </Svg>
 );
+
+const Styles = StyleSheet.create({
+    logo: {
+        marginRight: 5,
+        marginBottom: 5
+    }
+});
 
 export default WBCFCLogo;
