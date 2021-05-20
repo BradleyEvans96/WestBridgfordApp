@@ -33,7 +33,7 @@ export default function DrawerContent({ navigation }: any) {
                 <View>
                     {/* This should be it's own component */}
                     <View style={{ height: 2 }}>
-                        <View style={styles.profileImage}>
+                        <View style={{ height: 2 }}>
                             {/* require seems to be fround upon. We should find a better way to do this */}
                             <Avatar.Image
                                 // eslint-disable-next-line global-require
