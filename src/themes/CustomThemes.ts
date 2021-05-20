@@ -1,18 +1,18 @@
-import { 
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme
+import {
+    DarkTheme as NavigationDarkTheme,
+    DefaultTheme as NavigationDefaultTheme
 } from '@react-navigation/native';
-import { 
-  DarkTheme as PaperDarkTheme, 
-  DefaultTheme as PaperDefaultTheme
+import {
+    DarkTheme as PaperDarkTheme,
+    DefaultTheme as PaperDefaultTheme
 } from 'react-native-paper';
-import { Theme } from '../context/ThemeContext'
+import { Theme } from '../context/ThemeContext';
 
 export const themeMapper = (theme: Theme) => {
-  if (theme === Theme.Dark) return CustomDarkTheme
+    if (theme === Theme.Dark) return CustomDarkTheme;
 
-  return CustomDefaultTheme
-}
+    return CustomDefaultTheme;
+};
 
 const CustomDefaultTheme = {
     ...NavigationDefaultTheme,
@@ -23,15 +23,15 @@ const CustomDefaultTheme = {
         background: '#ffffff',
         text: '#333333'
     }
-}
+};
 
 const CustomDarkTheme = {
-  ...NavigationDarkTheme,
-  ...PaperDarkTheme,
-  colors: {
-    ...NavigationDarkTheme.colors,
-    ...PaperDarkTheme.colors,
-    background: '#333333',
-    text: '#ffffff'
-  }
-}
+    ...NavigationDarkTheme,
+    ...PaperDarkTheme,
+    colors: {
+        ...NavigationDarkTheme.colors,
+        ...PaperDarkTheme.colors,
+        background: '#333333',
+        text: '#ffffff'
+    }
+};
