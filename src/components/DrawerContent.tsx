@@ -32,8 +32,8 @@ export default function DrawerContent({ navigation }: any) {
             <DrawerContentScrollView {...navigation}>
                 <View>
                     {/* This should be it's own component */}
-                    <View style={{ height: 2 }}>
-                        <View style={{ height: 2 }}>
+                    <View style={styles.userInfoSection}>
+                        <View style={styles.profileImage}>
                             {/* require seems to be fround upon. We should find a better way to do this */}
                             <Avatar.Image
                                 // eslint-disable-next-line global-require
