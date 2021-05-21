@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
-const HomeScreen: React.FC = ({ navigation }: any) => (
+const HomeScreen: React.FC = ({ navigation }: Navigation) => (
     <View style={styles.HomeScreen}>
         <Text> This is the Home Screen </Text>
         <Button
@@ -16,7 +17,7 @@ const HomeScreen: React.FC = ({ navigation }: any) => (
     </View>
 );
 
-const HomeStackScreen: React.FC = ({ navigation }: any) => (
+const HomeStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Home"
         screenComponent={HomeScreen}

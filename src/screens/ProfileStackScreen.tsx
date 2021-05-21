@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const ProfileScreen: React.FC = () => (
     <View style={styles.ProfileScreen}>
@@ -8,7 +9,7 @@ const ProfileScreen: React.FC = () => (
     </View>
 );
 
-const ProfileStackScreen: React.FC = ({ navigation }: any) => (
+const ProfileStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Profile"
         screenComponent={ProfileScreen}

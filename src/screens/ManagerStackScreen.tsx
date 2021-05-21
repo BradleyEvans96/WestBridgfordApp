@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const ManagerScreen: React.FC = () => (
     <View style={styles.HomeScreen}>
@@ -8,7 +9,7 @@ const ManagerScreen: React.FC = () => (
     </View>
 );
 
-const ManagerStackScreen: React.FC = ({ navigation }: any) => (
+const ManagerStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Manager"
         screenComponent={ManagerScreen}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const FixtureScreen: React.FC = () => (
     <View style={styles.FixtureScreen}>
@@ -8,7 +9,7 @@ const FixtureScreen: React.FC = () => (
     </View>
 );
 
-const FixtureStackScreen: React.FC = ({ navigation }: any) => (
+const FixtureStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Fixtures"
         screenComponent={FixtureScreen}

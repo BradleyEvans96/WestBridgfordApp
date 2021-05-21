@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, Switch } from 'react-native-paper';
 import MasterStackHeader from '../components/MasterStackHeader';
 import { useTheme, Theme } from '../context/ThemeContext';
+import { Navigation } from '../types/types';
 
 const SettingsScreen: React.FC = () => {
     const { theme, setTheme } = useTheme();
@@ -39,7 +40,7 @@ const SettingsScreen: React.FC = () => {
     );
 };
 
-const SettingsStackScreen: React.FC = ({ navigation }: any) => (
+const SettingsStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Settings"
         screenComponent={SettingsScreen}

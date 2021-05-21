@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const VideoScreen: React.FC = () => (
     <View style={styles.VideoScreen}>
@@ -8,7 +9,7 @@ const VideoScreen: React.FC = () => (
     </View>
 );
 
-const VideoStackScreen: React.FC = ({ navigation }: any) => (
+const VideoStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Videos"
         screenComponent={VideoScreen}

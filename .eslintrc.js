@@ -27,6 +27,7 @@ module.exports = {
         "unused-imports/no-unused-imports-ts": "error",
         "react/jsx-uses-vars": "error",
         "react/jsx-uses-react": "error",
+        "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-unused-vars": [
 			"warn",
 			{ 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const ResultsScreen: React.FC = () => (
     <View style={styles.ResultsScreen}>
@@ -8,7 +9,7 @@ const ResultsScreen: React.FC = () => (
     </View>
 );
 
-const ResultsStackScreen: React.FC = ({ navigation }: any) => (
+const ResultsStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Results"
         screenComponent={ResultsScreen}

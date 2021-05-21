@@ -5,6 +5,7 @@ import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIc
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Avatar, Title, Caption, Drawer } from 'react-native-paper';
+import { Navigation } from '../types/types';
 
 class AppUser {
     name: string;
@@ -26,7 +27,7 @@ class AppUser {
 
 const user = new AppUser('Bradley Evans', ['Player', 'App Owner'], true);
 
-export default function DrawerContent({ navigation }: any) {
+export default function DrawerContent({ navigation }: Navigation) {
     return (
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...navigation}>

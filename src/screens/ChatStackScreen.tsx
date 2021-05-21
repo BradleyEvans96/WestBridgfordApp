@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const ChatScreen: React.FC = () => (
     <View style={styles.ChatScreen}>
@@ -8,7 +9,7 @@ const ChatScreen: React.FC = () => (
     </View>
 );
 
-const ChatStackScreen: React.FC = ({ navigation }: any) => (
+const ChatStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="Chat"
         screenComponent={ChatScreen}

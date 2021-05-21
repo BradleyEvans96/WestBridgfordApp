@@ -8,7 +8,6 @@ import ProfileStackScreen from './ProfileStackScreen';
 import ResultsStackScreen from './ResultsStackScreen';
 import SettingsStackScreen from './SettingsStackScreen';
 import SquadStackScreen from './SquadStackScreen';
-import TesterScreen from './TesterScreen';
 import VideosStackScreen from './VideosStackScreen';
 
 export {
@@ -22,6 +21,5 @@ export {
     ResultsStackScreen,
     SettingsStackScreen,
     SquadStackScreen,
-    TesterScreen,
     VideosStackScreen
 };

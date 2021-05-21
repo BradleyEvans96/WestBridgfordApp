@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
 const LeagueScreen: React.FC = () => (
     <View style={styles.LeagueScreen}>
@@ -8,7 +9,7 @@ const LeagueScreen: React.FC = () => (
     </View>
 );
 
-const LeagueStackScreen: React.FC = ({ navigation }: any) => (
+const LeagueStackScreen: React.FC = ({ navigation }: Navigation) => (
     <MasterStackHeader
         name="League"
         screenComponent={LeagueScreen}

@@ -5,13 +5,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Stripes from './Stripes';
 import colors from '../themes/colors';
 import WBCFCLogo from './WBLogo';
+import { Navigation } from '../types/types';
 
 const Stack = createStackNavigator();
 
 export type Props = {
     name: string;
     screenComponent: React.FC;
-    navigation: any;
+    navigation: Navigation;
 };
 
 const StackScreen: React.FC<Props> = ({
