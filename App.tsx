@@ -36,12 +36,6 @@ export default function App() {
 
     const [theme, setTheme] = React.useState(Theme.Default);
 
-    const initialLoginState = {
-      isLoading: true,
-      userName: '',
-      userToken: '',
-    };
-
     useEffect(() => {
       setTimeout(async() => {
         // setIsLoading(false);
@@ -52,7 +46,6 @@ export default function App() {
         } catch(e) {
           console.log(e);
         }
-        console.log('user token: ', userToken);
         dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
       }, 1000);
     }, []);
@@ -68,35 +61,42 @@ export default function App() {
         case 'LOGIN': 
           return {
             ...prevState,
-            userName: action.id,
+            userName: action.userName,
             userToken: action.token,
             isLoading: false,
           };
         case 'LOGOUT': 
           return {
             ...prevState,
-            userName: '',
-            userToken: '',
+            userName: null,
+            userToken: null,
             isLoading: false,
           };
       }
     };
   
-    const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+    const initialLoginState= {
+      isLoading: true,
+      userName: '',
+      userToken: '',
+    };
+    const [loginState, dispatch] = React.useReducer(loginReducer, (initialLoginState));
     
     const authContext = React.useMemo(() => ({
+      isLoading: true,
+      userName: '',
+      userToken: '',
+
       signIn: async(foundUser:any) => {
-        // setUserToken('fgkj');
-        // setIsLoading(false); 
         const userToken = String(foundUser[0].userToken);
-        const userName = foundUser[0].username;
+        const userName = String(foundUser[0].username);
         
         try {
           await AsyncStorage.setItem('userToken', userToken);
         } catch(e) {
           console.log(e);
         }
-        dispatch({ type: 'LOGIN', id: userName, token: userToken });
+        dispatch({ type: 'LOGIN', username: userName, token: userToken });
       },
       signOut: async() => {
         try {
@@ -116,13 +116,13 @@ export default function App() {
         </View>
       );
     }
-
+    console.log(loginState.userToken)
     return (
       <AuthContext.Provider value = {authContext}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <PaperProvider theme = {themeMapper(theme)}>
           <NavigationContainer theme = {themeMapper(theme)}>
-            {loginState.userToken != '' ? (
+            {loginState.userToken !== null ? (
               <Drawer.Navigator drawerContent = {props => <DrawerContent {...props}/> }>
               <Stack.Screen name = "Home" component={HomeStackScreen}/>
               <Stack.Screen name = "Profile" component={ProfileStackScreen}/>

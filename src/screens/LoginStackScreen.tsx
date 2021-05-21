@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, View, Text, Dimensions, Platform, TextInput, StatusBar } from 'react-native';
+import { Button, StyleSheet, View, Text, Dimensions, Platform, TextInput, StatusBar, Alert, Keyboard,TouchableWithoutFeedback } from 'react-native';
 import { createStackNavigator} from '@react-navigation/stack';
 import {LinearGradient} from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -8,7 +8,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../themes/colors';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import Users from '../model/Users';
 const LoginStack = createStackNavigator();
 
@@ -21,7 +21,7 @@ const LoginStackScreen : React.FC = ({navigation}:any) => {
 };
 
 const LoginScreen : React.FC = () => {
-    const { signIn } = React.useContext(AuthContext);
+    const { signIn } = useAuth();
     
     const [data, setData] = React.useState({
         email: '',
@@ -64,16 +64,37 @@ const LoginScreen : React.FC = () => {
         })
     }
 
+    const updateValidCredentials = (value:boolean) =>
+    {
+        setData({
+            ...data,
+            validCredentials: value
+        })
+    }
+
     const loginHandle = (email:string, password: string)=>
     {
         const foundUser = Users.filter ( item => {
             return email == item.email && password == item.password;
         });
+        if ( data.email.length == 0 || data.password.length == 0 ) {
+            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+                {text: 'Okay'}
+            ]);
+            updateValidCredentials(true);
+            return;
+        }
 
+        if ( foundUser.length == 0 ) {
+            updateValidCredentials(false);
+            return;
+        }
+        updateValidCredentials(true);
         signIn(foundUser);
     }
 
     return (
+        <TouchableWithoutFeedback onPress = {Keyboard.dismiss} accessible = {false}>
         <View style = {styles.container}>
             <StatusBar backgroundColor = '#009387' barStyle = 'light-content'/>
             <View style = {styles.header}>
@@ -161,6 +182,7 @@ const LoginScreen : React.FC = () => {
                 </View>
             </Animatable.View>
         </View>
+        </TouchableWithoutFeedback>
     );
 };
 

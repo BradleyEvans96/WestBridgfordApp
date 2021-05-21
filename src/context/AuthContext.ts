@@ -8,8 +8,9 @@ import { createContext, useContext } from 'react';
  */
     
 export type AuthContextType = {
-    //setUserToken: string;
-    //setIsLoading: boolean;
+    userToken: string;
+    userName: string;
+    isLoading: boolean;
     signIn:(foundUser:{ id: number, email: string, username: string, password: string, userToken: string }[])=>void;
     signOut:()=>void;
 }
@@ -20,8 +21,9 @@ export type AuthContextType = {
  * to provide an actual value with the 'value' prop.
 */
 export const AuthContext = createContext<AuthContextType>({ 
-    //setUserToken: "" ,
-    //setIsLoading: false,
+    userToken: "" ,
+    userName: "",
+    isLoading: false,
     signIn: (_foundUser) => console.warn('No Sign In SetUp'),
     signOut: () => console.warn('No Sign Out Setup')
   });

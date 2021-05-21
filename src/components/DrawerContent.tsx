@@ -6,6 +6,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Avatar, Title, Caption, 
     Drawer} from 'react-native-paper';
+import { useAuth } from '../context/AuthContext';
 
 class AppUser {
     name: string;
@@ -26,6 +27,8 @@ class AppUser {
 const user = new AppUser("Bradley Evans", ["Player", "App Owner"], true)
 
 export function DrawerContent({navigation}:any){
+    const {signOut} = useAuth();
+
     return(
         <View style={styles.drawerContent}>
         <DrawerContentScrollView {...navigation}>
@@ -178,7 +181,7 @@ export function DrawerContent({navigation}:any){
                     />
                 )}
                 label = "Sign Out"
-                onPress = {()=>{}}
+                onPress = {()=>{signOut()}}
             />
         </Drawer.Section>
         </View>
