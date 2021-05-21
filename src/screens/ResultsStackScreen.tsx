@@ -1,29 +1,29 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import MasterStackHeader from '../components/MasterStackHeader';
+import { Navigation } from '../types/types';
 
-const ResultsScreen : React.FC = () => {
-    return (
-        <View style = {styles.ResultsScreen}>
-            <Text> Results </Text>
-        </View>
-    );
-};
+const ResultsScreen: React.FC = () => (
+    <View style={styles.ResultsScreen}>
+        <Text> Results </Text>
+    </View>
+);
 
-const ResultsStackScreen : React.FC = ({navigation}:any) => {
-    return (
-        <MasterStackHeader name = "Results" screenComponent = {ResultsScreen} navigation = {navigation} />
-    )
-};
+const ResultsStackScreen: React.FC = ({ navigation }: Navigation) => (
+    <MasterStackHeader
+        name="Results"
+        screenComponent={ResultsScreen}
+        navigation={navigation}
+    />
+);
 
 export default ResultsStackScreen;
 
 const styles = StyleSheet.create({
     ResultsScreen: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-  
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
