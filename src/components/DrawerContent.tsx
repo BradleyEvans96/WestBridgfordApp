@@ -5,6 +5,7 @@ import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIc
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Avatar, Title, Caption, Drawer } from 'react-native-paper';
+import { useAuth } from '../context/AuthContext';
 import { Navigation } from '../types/types';
 
 class AppUser {
@@ -28,20 +29,20 @@ class AppUser {
 const user = new AppUser('Bradley Evans', ['Player', 'App Owner'], true);
 
 export default function DrawerContent({ navigation }: Navigation) {
+    const { signOut } = useAuth();
+
     return (
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...navigation}>
                 <View>
-                    {/* This should be it's own component */}
                     <View style={styles.userInfoSection}>
-                        <View style={styles.profileImage}>
-                            {/* require seems to be fround upon. We should find a better way to do this */}
+                        <View style={styles.userInfoPicture}>
                             <Avatar.Image
                                 // eslint-disable-next-line global-require
                                 source={require('../assets/NoProfileImage.png')}
                                 size={50}
                             />
-                            <View style={styles.profileTitle}>
+                            <View style={styles.userInfoHeader}>
                                 <Title style={styles.title}>{user.name}</Title>
                                 <Caption style={styles.caption}>
                                     Player, Owner{' '}
@@ -49,7 +50,6 @@ export default function DrawerContent({ navigation }: Navigation) {
                             </View>
                         </View>
                     </View>
-                    {/* This should be dynamically created */}
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -197,7 +197,6 @@ export default function DrawerContent({ navigation }: Navigation) {
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
-            {/* Maybe also it's own component */}
             <Drawer.Section style={styles.bottomDrawerSection}>
                 <DrawerItem
                     icon={({ color, size }) => (
@@ -208,7 +207,9 @@ export default function DrawerContent({ navigation }: Navigation) {
                         />
                     )}
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={() => {
+                        signOut();
+                    }}
                 />
             </Drawer.Section>
         </View>
@@ -220,16 +221,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between'
     },
-    profileTitle: {
-        marginLeft: 15,
-        flexDirection: 'column'
+    userInfoSection: {
+        paddingLeft: 20
     },
-    profileImage: {
+    userInfoPicture: {
         flexDirection: 'row',
         marginTop: 15
     },
-    userInfoSection: {
-        paddingLeft: 20
+    userInfoHeader: {
+        marginLeft: 15,
+        flexDirection: 'column'
     },
     title: {
         fontSize: 16,

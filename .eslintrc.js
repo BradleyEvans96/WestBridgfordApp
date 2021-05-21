@@ -36,7 +36,13 @@ module.exports = {
                 "args": "after-used", 
                 "argsIgnorePattern": "^_" 
             }
-		]
+		],
+        "prettier/prettier": [
+            "error",
+            {
+              "endOfLine": "auto"
+            },
+          ]
 	},
     ignorePatterns: ['.eslintrc.js']
 };
