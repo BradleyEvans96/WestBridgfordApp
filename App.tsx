@@ -17,7 +17,7 @@ import { AuthContext, User } from './src/context/AuthContext';
 // import AsyncStorage from '@react-native-community/async-storage';
 
 import themeMapper from './src/themes/ThemeMapper';
-import DrawerContent from './src/components/DrawerContent';
+import DrawerContent from './src/components/organisms/DrawerContent';
 import {
     HomeStackScreen,
     ProfileStackScreen,

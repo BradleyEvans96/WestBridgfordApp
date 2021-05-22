@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, Switch } from 'react-native-paper';
-import MasterStackHeader from '../components/MasterStackHeader';
+import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { useTheme, Theme } from '../context/ThemeContext';
-import { Navigation } from '../types/types';
+import { Navigation } from '../types/propTypes';
 
 const SettingsScreen: React.FC = () => {
     const { theme, setTheme } = useTheme();

@@ -4,29 +4,13 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Avatar, Title, Caption, Drawer } from 'react-native-paper';
-import { useAuth } from '../context/AuthContext';
-import { Navigation } from '../types/types';
+import { Drawer } from 'react-native-paper';
+import { useAuth } from '../../context/AuthContext';
+import { Navigation } from '../../types/propTypes';
+import UserInfoHeader from '../molecules/UserInfoHeader';
+import { User, Role } from '../../types/types';
 
-class AppUser {
-    name: string;
-
-    roles: string[];
-
-    isManager: boolean;
-
-    constructor(name: string, roles: string[], isManager: boolean) {
-        this.name = name;
-        this.roles = roles;
-        this.isManager = isManager;
-    }
-
-    listRoles() {
-        return this.roles.join(', ');
-    }
-}
-
-const user = new AppUser('Bradley Evans', ['Player', 'App Owner'], true);
+const appUser: User = new User('Bradley', 'Evans', [Role.PLAYER, Role.MANAGER]);
 
 export default function DrawerContent({ navigation }: Navigation) {
     const { signOut } = useAuth();
@@ -35,21 +19,7 @@ export default function DrawerContent({ navigation }: Navigation) {
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...navigation}>
                 <View>
-                    <View style={styles.userInfoSection}>
-                        <View style={styles.userInfoPicture}>
-                            <Avatar.Image
-                                // eslint-disable-next-line global-require
-                                source={require('../assets/NoProfileImage.png')}
-                                size={50}
-                            />
-                            <View style={styles.userInfoHeader}>
-                                <Title style={styles.title}>{user.name}</Title>
-                                <Caption style={styles.caption}>
-                                    Player, Owner{' '}
-                                </Caption>
-                            </View>
-                        </View>
-                    </View>
+                    <UserInfoHeader user={appUser} />
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
                             icon={({ color, size }) => (

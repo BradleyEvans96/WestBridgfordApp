@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MasterStackHeader from '../components/MasterStackHeader';
-import { Navigation } from '../types/types';
+import MasterStackHeader from '../components/organisms/MasterStackHeader';
+import { Navigation } from '../types/propTypes';
 
 const ResultsScreen: React.FC = () => (
     <View style={styles.ResultsScreen}>

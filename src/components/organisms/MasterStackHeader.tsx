@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Stripes from './Stripes';
-import colors from '../themes/colors';
-import WBCFCLogo from './WBLogo';
-import { Navigation } from '../types/types';
+import Stripes from '../atoms/Stripes';
+import colors from '../../themes/colors';
+import { Navigation } from '../../types/propTypes';
+import { ClubLogo } from '../atoms/images';
 
 const Stack = createStackNavigator();
 
@@ -43,7 +43,9 @@ const StackScreen: React.FC<Props> = ({
                     />
                 ),
                 headerRight: () => (
-                    <WBCFCLogo size={styles.headerIcons.height} />
+                    <View style={styles.headerIcon}>
+                        <ClubLogo size={50} />
+                    </View>
                 )
             }}
         >
@@ -77,8 +79,7 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         color: 'white'
     },
-    headerIcons: {
-        height: 40,
-        width: 40
+    headerIcon: {
+        padding: 20
     }
 });

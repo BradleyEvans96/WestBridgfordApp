@@ -3,7 +3,6 @@ module.exports = {
     extends: [
         '@react-native-community', 
         'airbnb-typescript', 
-        'prettier',     
         'plugin:json/recommended',
         'plugin:prettier/recommended',
         'plugin:react/recommended'
@@ -24,6 +23,8 @@ module.exports = {
         "react/display-name": "off",
         "react/prop-types": "off",
         "@typescript-eslint/no-use-before-define": "off",
+        "import/no-dynamic-require": "off",
+        "global-require": "off",
         "unused-imports/no-unused-imports-ts": "error",
         "react/jsx-uses-vars": "error",
         "react/jsx-uses-react": "error",
