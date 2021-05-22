@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Stripes from '../atoms/Stripes';
 import colors from '../../themes/colors';
-import { Navigation } from '../../types/propTypes';
+import { Navigation } from '../../types/types';
 import { ClubLogo } from '../atoms/images';
 
 const Stack = createStackNavigator();

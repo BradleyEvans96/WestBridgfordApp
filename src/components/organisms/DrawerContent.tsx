@@ -6,9 +6,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Drawer } from 'react-native-paper';
 import { useAuth } from '../../context/AuthContext';
-import { Navigation } from '../../types/propTypes';
+import { Navigation, User, Role } from '../../types/types';
 import UserInfoHeader from '../molecules/UserInfoHeader';
-import { User, Role } from '../../types/types';
 
 const appUser: User = new User('Bradley', 'Evans', [Role.PLAYER, Role.MANAGER]);
 
