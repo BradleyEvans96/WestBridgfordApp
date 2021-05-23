@@ -21,7 +21,9 @@ const LeagueScreen: React.FC = () => (
     </View>
 );
 
-const LeagueStackScreen: React.FC = ({ navigation }: Navigation) => (
+const LeagueStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="League"
         screenComponent={LeagueScreen}

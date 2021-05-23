@@ -25,7 +25,9 @@ const ResultsScreen: React.FC = () => (
     </View>
 );
 
-const ResultsStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ResultsStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Results"
         screenComponent={ResultsScreen}

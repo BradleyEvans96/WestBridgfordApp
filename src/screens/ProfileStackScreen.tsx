@@ -25,7 +25,9 @@ const ProfileScreen: React.FC = () => (
     </View>
 );
 
-const ProfileStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ProfileStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Profile"
         screenComponent={ProfileScreen}

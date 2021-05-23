@@ -25,7 +25,9 @@ const ManagerScreen: React.FC = () => (
     </View>
 );
 
-const ManagerStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ManagerStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Manager"
         screenComponent={ManagerScreen}

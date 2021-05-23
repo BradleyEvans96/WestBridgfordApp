@@ -52,7 +52,9 @@ const SettingsScreen: React.FC = () => {
     );
 };
 
-const SettingsStackScreen: React.FC = ({ navigation }: Navigation) => (
+const SettingsStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Settings"
         screenComponent={SettingsScreen}

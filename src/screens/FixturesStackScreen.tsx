@@ -21,7 +21,9 @@ const FixtureScreen: React.FC = () => (
     </View>
 );
 
-const FixtureStackScreen: React.FC = ({ navigation }: Navigation) => (
+const FixtureStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Fixtures"
         screenComponent={FixtureScreen}

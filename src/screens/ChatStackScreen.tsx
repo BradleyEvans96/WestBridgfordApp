@@ -25,7 +25,9 @@ const ChatScreen: React.FC = () => (
     </View>
 );
 
-const ChatStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ChatStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Chat"
         screenComponent={ChatScreen}

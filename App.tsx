@@ -128,7 +128,7 @@ export default function App() {
             </View>
         );
     }
-    console.log(loginState.userToken);
+
     return (
         <AuthContext.Provider value={authContext}>
             <ThemeContext.Provider value={{ theme, setTheme }}>

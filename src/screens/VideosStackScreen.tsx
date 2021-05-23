@@ -21,7 +21,9 @@ const VideoScreen: React.FC = () => (
     </View>
 );
 
-const VideoStackScreen: React.FC = ({ navigation }: Navigation) => (
+const VideoStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Videos"
         screenComponent={VideoScreen}

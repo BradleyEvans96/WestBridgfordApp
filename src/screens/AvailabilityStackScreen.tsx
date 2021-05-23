@@ -21,7 +21,9 @@ const Availability: React.FC = () => (
     </View>
 );
 
-const AvailabilityStackScreen: React.FC = ({ navigation }: Navigation) => (
+const AvailabilityStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Availability"
         screenComponent={Availability}

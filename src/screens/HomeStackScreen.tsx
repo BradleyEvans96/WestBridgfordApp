@@ -15,21 +15,25 @@ export const DrawerItem: DrawerItemViewModel = {
     )
 };
 
-const HomeScreen: React.FC = ({ navigation }: Navigation) => (
+const HomeScreen: React.FC<{
+    navigation?: Navigation;
+}> = ({ navigation }) => (
     <View style={styles.HomeScreen}>
         <Text> This is the Home Screen </Text>
         <Button
             title="Tester Page"
-            onPress={() => navigation.navigate('Tester')}
+            onPress={() => navigation?.navigate('Tester')}
         />
         <Button
             title="Press to be the manager"
-            onPress={() => navigation.navigate('Manager')}
+            onPress={() => navigation?.navigate('Manager')}
         />
     </View>
 );
 
-const HomeStackScreen: React.FC = ({ navigation }: Navigation) => (
+const HomeStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Home"
         screenComponent={HomeScreen}

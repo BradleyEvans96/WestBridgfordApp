@@ -21,7 +21,9 @@ const SquadScreen: React.FC = () => (
     </View>
 );
 
-const SquadStackScreen: React.FC = ({ navigation }: Navigation) => (
+const SquadStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Squad"
         screenComponent={SquadScreen}
