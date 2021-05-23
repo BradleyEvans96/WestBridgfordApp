@@ -1,9 +1,21 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, Switch } from 'react-native-paper';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { useTheme, Theme } from '../context/ThemeContext';
 import { Navigation } from '../types/types';
+import AppScreen from './AppScreen';
+
+export const DrawerItem: DrawerItemViewModel = {
+    label: AppScreen.SETTINGS,
+    navigationTarget: AppScreen.SETTINGS,
+    hasPermission: (_) => true,
+    icon: (color, size) => (
+        <Ionicons name="settings-outline" color={color} size={size} />
+    )
+};
 
 const SettingsScreen: React.FC = () => {
     const { theme, setTheme } = useTheme();
