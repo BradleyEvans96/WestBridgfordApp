@@ -40,7 +40,6 @@ export default ProfileStackScreen;
 const styles = StyleSheet.create({
     ProfileScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

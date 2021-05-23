@@ -39,7 +39,6 @@ export default ManagerStackScreen;
 const styles = StyleSheet.create({
     HomeScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

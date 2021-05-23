@@ -45,7 +45,6 @@ export default HomeStackScreen;
 const styles = StyleSheet.create({
     HomeScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

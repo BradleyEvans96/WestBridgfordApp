@@ -205,7 +205,6 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 2,
-        backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingHorizontal: 20,

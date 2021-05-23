@@ -36,7 +36,6 @@ export default LeagueStackScreen;
 const styles = StyleSheet.create({
     LeagueScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

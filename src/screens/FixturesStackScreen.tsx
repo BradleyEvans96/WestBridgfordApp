@@ -36,7 +36,6 @@ export default FixtureStackScreen;
 const styles = StyleSheet.create({
     FixtureScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

@@ -40,7 +40,6 @@ export default ChatStackScreen;
 const styles = StyleSheet.create({
     ChatScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

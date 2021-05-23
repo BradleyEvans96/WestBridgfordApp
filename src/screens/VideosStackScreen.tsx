@@ -36,7 +36,6 @@ export default VideoStackScreen;
 const styles = StyleSheet.create({
     VideoScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

@@ -36,7 +36,6 @@ export default AvailabilityStackScreen;
 const styles = StyleSheet.create({
     AvailabilityScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

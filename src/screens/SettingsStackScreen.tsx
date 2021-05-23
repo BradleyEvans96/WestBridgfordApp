@@ -66,8 +66,7 @@ export default SettingsStackScreen;
 
 const styles = StyleSheet.create({
     screen: {
-        flex: 1,
-        backgroundColor: '#fff'
+        flex: 1
     },
     SettingsScreen: {
         justifyContent: 'flex-start',
