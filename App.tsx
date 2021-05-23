@@ -31,6 +31,7 @@ import {
     ManagerStackScreen,
     SettingsStackScreen
 } from './src/screens';
+import AppScreen from './src/screens/AppScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -138,6 +139,7 @@ export default function App() {
                                 drawerContent={(props) => (
                                     <DrawerContent {...props} />
                                 )}
+                                initialRouteName={AppScreen.HOME}
                             >
                                 <Stack.Screen
                                     name="Home"

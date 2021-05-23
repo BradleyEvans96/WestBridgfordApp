@@ -1,6 +1,7 @@
 import React from 'react';
 import { DrawerItem } from '@react-navigation/drawer';
 import { StyleProp, View, ViewStyle } from 'react-native';
+import { NavigationState } from '@react-navigation/native';
 import { Navigation, User } from '../../types/types';
 import AppScreen from '../../screens/AppScreen';
 
@@ -25,6 +26,8 @@ export default function DrawerItemGroup({
     navigation,
     currentUser
 }: IProps) {
+    const currentPage = getCurrentPage(navigation.dangerouslyGetState());
+
     return (
         <View>
             {items.reduce((components, item) => {
@@ -40,6 +43,7 @@ export default function DrawerItemGroup({
                             icon={({ color, size }) =>
                                 item.icon ? item.icon(color, size) : undefined
                             }
+                            focused={currentPage === item.label}
                         />
                     );
                 }
@@ -47,4 +51,20 @@ export default function DrawerItemGroup({
             }, [] as JSX.Element[])}
         </View>
     );
+}
+
+function getCurrentPage({ history, routes }: NavigationState) {
+    if (history) {
+        for (let i = history.length - 1; i >= 0; i -= 1) {
+            const historyItem = history[i] as {
+                type: string;
+                key: string;
+            };
+            if (historyItem.type !== 'drawer') {
+                return routes.find((route) => route.key === historyItem.key)
+                    ?.name;
+            }
+        }
+    }
+    return null;
 }

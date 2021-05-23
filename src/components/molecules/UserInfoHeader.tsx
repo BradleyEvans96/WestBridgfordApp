@@ -29,7 +29,7 @@ export default function UserInfoHeader({ user }: IProps): JSX.Element {
 
 const styles = StyleSheet.create({
     header: {
-        padding: 20
+        padding: 10
     },
     headerText: {
         marginLeft: 15,

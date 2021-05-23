@@ -11,12 +11,16 @@ import { APP_SCREENS } from '../../screens';
 
 const appUser: User = new User('Bradley', 'Evans', [Role.PLAYER, Role.MANAGER]);
 
-export default function DrawerContent({ navigation }: Navigation) {
+export default function DrawerContent({
+    navigation
+}: {
+    navigation: Navigation;
+}) {
     const { signOut } = useAuth();
 
     return (
         <View style={styles.drawerContent}>
-            <DrawerContentScrollView {...navigation}>
+            <DrawerContentScrollView>
                 <View>
                     <UserInfoHeader user={appUser} />
                     <Drawer.Section style={styles.drawerSection}>
@@ -28,7 +32,7 @@ export default function DrawerContent({ navigation }: Navigation) {
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
-            <Drawer.Section style={styles.bottomDrawerSection}>
+            <Drawer.Section style={[styles.bottomDrawerSection]}>
                 <DrawerItem
                     icon={({ color, size }) => (
                         <MaterialCommunityIcon
@@ -50,47 +54,16 @@ export default function DrawerContent({ navigation }: Navigation) {
 const styles = StyleSheet.create({
     drawerContent: {
         flex: 1,
-        justifyContent: 'space-between'
-    },
-    userInfoSection: {
-        paddingLeft: 20
-    },
-    userInfoPicture: {
-        flexDirection: 'row',
-        marginTop: 15
-    },
-    userInfoHeader: {
-        marginLeft: 15,
-        flexDirection: 'column'
-    },
-    title: {
-        fontSize: 16,
-        marginTop: 3,
-        fontWeight: 'bold'
-    },
-    caption: {
-        fontSize: 14,
-        lineHeight: 14
-    },
-    row: {
-        marginTop: 20,
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    section: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginRight: 15
+        justifyContent: 'space-between',
+        paddingLeft: 10
     },
     drawerSection: {
         marginTop: 15,
-        alignContent: 'flex-start',
-        paddingLeft: 10
+        alignContent: 'flex-start'
     },
     bottomDrawerSection: {
         marginBottom: 15,
-        borderTopColor: '#f4f4f4',
         borderTopWidth: 1,
-        paddingLeft: 10
+        borderColor: '#0000001f'
     }
 });
