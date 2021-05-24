@@ -29,11 +29,10 @@ export default function UserInfoHeader({ user }: IProps): JSX.Element {
 
 const styles = StyleSheet.create({
     header: {
-        padding: 10
+        paddingLeft: 10
     },
     headerText: {
-        marginLeft: 15,
-        flexDirection: 'column'
+        marginLeft: 15
     },
     name: {
         fontSize: 16,
@@ -45,8 +44,6 @@ const styles = StyleSheet.create({
         lineHeight: 14
     },
     image: {
-        width: 50,
-        height: 50,
         flexDirection: 'row',
         marginTop: 15
     }
