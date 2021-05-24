@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, ImageSourcePropType } from 'react-native';
 
 export enum IconShape {
     CIRCLE,
@@ -20,19 +20,22 @@ type FactoryConsumer = (props: IImageProps) => JSX.Element;
 
 // Define all our images here as React functions so that we don't need to always reference the path
 export const DefaultProfilePicture: FactoryConsumer = (props: IImageProps) =>
-    ImageFactory('DefaultProfilePicture.png', props);
+    ImageFactory(require('./DefaultProfilePicture.png'), props);
 
 export const ClubLogo: FactoryConsumer = (props: IImageProps) =>
-    ImageFactory('WBCFCLogo.png', { ...props, shape: IconShape.CIRCLE });
+    ImageFactory(require('./WBCFCLogo.png'), {
+        ...props,
+        shape: IconShape.CIRCLE
+    });
 
 // This function will create the images for you
 function ImageFactory(
-    imageName: string,
+    image: ImageSourcePropType,
     { size, shape = IconShape.SQUARE }: IImageProps
 ): JSX.Element {
     return (
         <Image
-            source={require(`./${imageName}`)}
+            source={image}
             style={{
                 width: size,
                 height: size,
