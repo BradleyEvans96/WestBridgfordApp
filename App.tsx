@@ -17,7 +17,7 @@ import { AuthContext, User } from './src/context/AuthContext';
 // import AsyncStorage from '@react-native-community/async-storage';
 
 import themeMapper from './src/themes/ThemeMapper';
-import DrawerContent from './src/components/DrawerContent';
+import DrawerContent from './src/components/organisms/DrawerContent';
 import {
     HomeStackScreen,
     ProfileStackScreen,
@@ -31,6 +31,7 @@ import {
     ManagerStackScreen,
     SettingsStackScreen
 } from './src/screens';
+import AppScreen from './src/screens/AppScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -127,7 +128,7 @@ export default function App() {
             </View>
         );
     }
-    console.log(loginState.userToken);
+
     return (
         <AuthContext.Provider value={authContext}>
             <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -138,6 +139,7 @@ export default function App() {
                                 drawerContent={(props) => (
                                     <DrawerContent {...props} />
                                 )}
+                                initialRouteName={AppScreen.HOME}
                             >
                                 <Stack.Screen
                                     name="Home"

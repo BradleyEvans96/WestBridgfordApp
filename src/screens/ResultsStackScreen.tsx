@@ -1,7 +1,23 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MasterStackHeader from '../components/MasterStackHeader';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
+import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
+import AppScreen from './AppScreen';
+
+export const DrawerItem: DrawerItemViewModel = {
+    label: AppScreen.RESULTS,
+    navigationTarget: AppScreen.RESULTS,
+    hasPermission: (_) => true,
+    icon: (color, size) => (
+        <MaterialCommunityIcon
+            name="scoreboard-outline"
+            color={color}
+            size={size}
+        />
+    )
+};
 
 const ResultsScreen: React.FC = () => (
     <View style={styles.ResultsScreen}>
@@ -9,7 +25,9 @@ const ResultsScreen: React.FC = () => (
     </View>
 );
 
-const ResultsStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ResultsStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Results"
         screenComponent={ResultsScreen}
@@ -22,7 +40,6 @@ export default ResultsStackScreen;
 const styles = StyleSheet.create({
     ResultsScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }

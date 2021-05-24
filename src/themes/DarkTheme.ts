@@ -1,5 +1,6 @@
 import { DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import { DarkTheme as PaperDarkTheme } from 'react-native-paper';
+import Colours from './colors';
 
 const DarkTheme = {
     ...NavigationDarkTheme,
@@ -7,8 +8,8 @@ const DarkTheme = {
     colors: {
         ...NavigationDarkTheme.colors,
         ...PaperDarkTheme.colors,
-        background: '#333333',
-        text: '#ffffff'
+        background: Colours.CHARCOAL,
+        text: Colours.WHITE
     }
 };
 

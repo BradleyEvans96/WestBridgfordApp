@@ -1,7 +1,23 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MasterStackHeader from '../components/MasterStackHeader';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
+import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
+import AppScreen from './AppScreen';
+
+export const DrawerItem: DrawerItemViewModel = {
+    label: AppScreen.CHAT,
+    navigationTarget: AppScreen.CHAT,
+    hasPermission: (_) => true,
+    icon: (color, size) => (
+        <MaterialCommunityIcon
+            name="chat-processing-outline"
+            color={color}
+            size={size}
+        />
+    )
+};
 
 const ChatScreen: React.FC = () => (
     <View style={styles.ChatScreen}>
@@ -9,7 +25,9 @@ const ChatScreen: React.FC = () => (
     </View>
 );
 
-const ChatStackScreen: React.FC = ({ navigation }: Navigation) => (
+const ChatStackScreen: React.FC<{
+    navigation: Navigation;
+}> = ({ navigation }) => (
     <MasterStackHeader
         name="Chat"
         screenComponent={ChatScreen}
@@ -22,7 +40,6 @@ export default ChatStackScreen;
 const styles = StyleSheet.create({
     ChatScreen: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     }
