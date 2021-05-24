@@ -8,8 +8,24 @@ export type Props = {
     backgroundColour: string;
 };
 
-function getStripeStartPosition(position: number, stripeWidth: number): number {
-    return 0 + position * stripeWidth;
+type StipeDrawInstructions = {
+    stripeWidth: number;
+    startPositions: number[];
+};
+
+function getStripeDrawInstructions(
+    containerWidth: number,
+    numberOfStripes: number
+): StipeDrawInstructions {
+    const totalStripes = numberOfStripes * 2 + 1;
+    const stripeWidth = containerWidth / totalStripes;
+
+    const startPositions = [];
+    for (let i = 0; i < numberOfStripes; i++) {
+        startPositions.push(stripeWidth + i * 2 * stripeWidth);
+    }
+
+    return { stripeWidth, startPositions };
 }
 
 const Stripes: React.FC<Props> = ({
@@ -18,9 +34,10 @@ const Stripes: React.FC<Props> = ({
     stripeColour,
     backgroundColour
 }) => {
-    const totalStripes = numberOfStripes * 2 + 1;
-
-    const stripeWidth = width / totalStripes;
+    const { stripeWidth, startPositions } = getStripeDrawInstructions(
+        width,
+        numberOfStripes
+    );
 
     return (
         <Svg height="100%" width={width}>
@@ -30,27 +47,17 @@ const Stripes: React.FC<Props> = ({
                 fill={backgroundColour}
                 opacity="1"
             />
-            <Rect
-                width={stripeWidth}
-                height="100%"
-                fill={stripeColour}
-                opacity="1"
-                x={getStripeStartPosition(1, stripeWidth)}
-            />
-            <Rect
-                width={stripeWidth}
-                height="100%"
-                fill={stripeColour}
-                opacity="1"
-                x={getStripeStartPosition(3, stripeWidth)}
-            />
-            <Rect
-                width={stripeWidth}
-                height="100%"
-                fill={stripeColour}
-                opacity="1"
-                x={getStripeStartPosition(5, stripeWidth)}
-            />
+            {startPositions.map((startPos, index) => (
+                <Rect
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    width={stripeWidth}
+                    height="100%"
+                    fill={stripeColour}
+                    opacity="1"
+                    x={startPos}
+                />
+            ))}
         </Svg>
     );
 };

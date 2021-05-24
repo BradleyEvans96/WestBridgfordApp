@@ -55,7 +55,7 @@ export default function DrawerItemGroup({
 
 function getCurrentPage({ history, routes }: NavigationState) {
     if (history) {
-        for (let i = history.length - 1; i >= 0; i -= 1) {
+        for (let i = history.length - 1; i >= 0; i--) {
             const historyItem = history[i] as {
                 type: string;
                 key: string;

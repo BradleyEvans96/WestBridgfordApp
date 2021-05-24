@@ -24,6 +24,7 @@ module.exports = {
         "react/prop-types": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "import/no-dynamic-require": "off",
+        "no-plusplus": "off",
         "global-require": "off",
         "unused-imports/no-unused-imports-ts": "error",
         "react/jsx-uses-vars": "error",
