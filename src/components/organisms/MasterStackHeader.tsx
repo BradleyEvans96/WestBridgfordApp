@@ -44,7 +44,7 @@ const StackScreen: React.FC<Props> = ({
                 ),
                 headerRight: () => (
                     <View style={styles.headerIcon}>
-                        <ClubLogo size={50} />
+                        <ClubLogo size={30} />
                     </View>
                 )
             }}
