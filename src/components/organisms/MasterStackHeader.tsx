@@ -20,7 +20,7 @@ const StackScreen: React.FC<Props> = ({
     screenComponent,
     navigation
 }) => {
-    const windowWidth = Dimensions.get('window').width;
+    const windowWidth = Dimensions.get('window').width + 1;
     return (
         <Stack.Navigator
             screenOptions={{
