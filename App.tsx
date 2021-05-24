@@ -5,7 +5,8 @@ import {
     View,
     ActivityIndicator,
     AsyncStorage,
-    StyleSheet
+    StyleSheet,
+    StatusBar
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -131,6 +132,11 @@ export default function App() {
 
     return (
         <AuthContext.Provider value={authContext}>
+            <StatusBar
+                barStyle="light-content"
+                backgroundColor="transparent"
+                translucent
+            />
             <ThemeContext.Provider value={{ theme, setTheme }}>
                 <PaperProvider theme={themeMapper(theme)}>
                     <NavigationContainer theme={themeMapper(theme)}>
