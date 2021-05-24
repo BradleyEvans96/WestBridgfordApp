@@ -17,10 +17,10 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import colors from '../themes/colors';
 import { useAuth } from '../context/AuthContext';
 import Users from '../model/Users';
 import { ClubLogo } from '../components/atoms/images';
+import Colours from '../themes/colors';
 
 const LoginStack = createStackNavigator();
 
@@ -172,8 +172,8 @@ const LoginScreen: React.FC = () => {
                         >
                             <LinearGradient
                                 colors={[
-                                    colors.WEST_BRIDGFORD_BLUE_LIGHT,
-                                    colors.WEST_BRIDGFORD_BLUE
+                                    Colours.WEST_BRIDGFORD_BLUE_LIGHT,
+                                    Colours.WEST_BRIDGFORD_BLUE
                                 ]}
                                 style={styles.signIn}
                             >
@@ -195,7 +195,7 @@ const heightLogo = height * 0.2;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.WEST_BRIDGFORD_BLUE
+        backgroundColor: Colours.WEST_BRIDGFORD_BLUE
     },
     header: {
         flex: 1,
@@ -208,7 +208,8 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingHorizontal: 20,
-        paddingVertical: 30
+        paddingVertical: 30,
+        backgroundColor: Colours.WHITE
     },
     text_header: {
         color: '#fff',
