@@ -22,8 +22,17 @@ type FactoryConsumer = (props: IImageProps) => JSX.Element;
 export const DefaultProfilePicture: FactoryConsumer = (props: IImageProps) =>
     ImageFactory(require('./DefaultProfilePicture.png'), props);
 
-export const ClubLogo: FactoryConsumer = (props: IImageProps) =>
+export const DefaultClubLogo: FactoryConsumer = (props: IImageProps) =>
+    ImageFactory(require('./defaultclublogo.png'), props);
+
+export const BlueClubLogo: FactoryConsumer = (props: IImageProps) =>
     ImageFactory(require('./WBCFCLogo.png'), {
+        ...props,
+        shape: IconShape.CIRCLE
+    });
+
+export const RedClubLogo: FactoryConsumer = (props: IImageProps) =>
+    ImageFactory(require('./WBCFClogoRed.png'), {
         ...props,
         shape: IconShape.CIRCLE
     });

@@ -39,7 +39,6 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
     const [theme, setTheme] = React.useState(Theme.Default);
-
     useEffect(() => {
         setTimeout(async () => {
             // setIsLoading(false);
