@@ -5,6 +5,8 @@ import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import MatchCard from '../components/molecules/fixtureCard';
+import Matches from '../model/Matches';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.HOME,
@@ -19,7 +21,7 @@ const HomeScreen: React.FC<{
     navigation?: Navigation;
 }> = ({ navigation }) => (
     <View style={styles.HomeScreen}>
-        {/* <MatchCard MatchDetails={Matches[1]} /> */}
+        <MatchCard MatchDetails={Matches[1]} />
         <Text> This is the Home Screen </Text>
         <Button
             title="Tester Page"
