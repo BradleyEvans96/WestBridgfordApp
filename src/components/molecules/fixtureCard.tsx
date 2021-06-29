@@ -1,57 +1,67 @@
 import React from 'react';
 import Card from '../atoms/Card';
 
-type Match = {
-    homeTeam: TeamScore['teamName'];
-    awayTeam: TeamScore['teamName'];
+enum AvailabilityStatus {
+    available = 'Available',
+    unavailable = 'Unavailable',
+    unanswered = 'Unanswered'
+}
+
+export type Props = {
+    MatchDetails: Match;
+    PlayerInfo: PlayerMatchInformation;
+};
+
+export type Match = {
+    homeTeam: TeamScore;
+    awayTeam: TeamScore;
     matchDate: Date;
     cancelled: boolean;
 };
 
-type Result = {
-    homeTeam: TeamScore;
-    awayTeam: TeamScore;
-};
-
-type TeamScore = {
+export type TeamScore = {
     teamName: string;
     goals: number;
 };
 
-const teamOne: TeamScore = {
-    teamName: 'Team 1',
-    goals: 0
-};
-
-const teamTwo: TeamScore = {
-    teamName: 'Team 2',
-    goals: 0
-};
-
-const gameResult: Result = {
-    homeTeam: teamOne,
-    awayTeam: teamTwo
-};
-
-// const footballMatch: Match = [
-//     {
-//         homeTeam: teamOne.teamName,
-//         awayTeam: teamTwo.teamName,
-//         matchDate: 20210606,
-//         cancelled: false
-//     }
-// ];
-
-type PlayerMatchInformation = {
+export type PlayerMatchInformation = {
     playerName: string;
-    isavailable: boolean;
+    availability: AvailabilityStatus;
     playedGame: boolean;
     numberScored: number;
     numberAssisted: number;
 };
 
-export default function matchCard() {
-    const formattedTitle = 'West Bridgford 4 - 1 Aslockton';
-    const mainBody = 'Played: 1, Goals: 0, Assists: 0';
+function matchInFuture(FixtureDate: Date) {
+    // With Date object we can compare dates them using the >, <, <= or >=.
+    // The ==, !=, ===, and !== operators require to use date.getTime(),
+    // so we need to create a new instance of Date with 'new Date()'
+    const d1 = new Date();
+    const d2 = new Date(FixtureDate);
+
+    // Check if the first is greater than second
+    if (d1 < d2) return true;
+
+    return false;
+}
+
+function getPlayedGameInfo(Info: PlayerMatchInformation) {
+    if (Info.playedGame) {
+        return `Played: 1   Goals: ${Info.numberScored}   Assists: ${Info.numberAssisted}`;
+    }
+
+    return `Played: 0   Goals: 0   Assists: 0`;
+}
+
+function setMainBody(matchDate: Date, PlayerInfo: PlayerMatchInformation) {
+    if (matchInFuture(matchDate)) {
+        return `Status: ${PlayerInfo.availability}`;
+    }
+    return getPlayedGameInfo(PlayerInfo);
+}
+
+export default function matchCard({ MatchDetails, PlayerInfo }: Props) {
+    const formattedTitle = `${MatchDetails.homeTeam.teamName} ${MatchDetails.homeTeam.goals}-${MatchDetails.awayTeam.goals} ${MatchDetails.awayTeam.teamName}`;
+    const mainBody = setMainBody(MatchDetails.matchDate, PlayerInfo);
     return <Card Title={formattedTitle} MainBody={mainBody} />;
 }
