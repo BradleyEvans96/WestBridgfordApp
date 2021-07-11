@@ -40,7 +40,13 @@ const SettingsScreen: React.FC = () => {
                             toggleTheme(isDarkTheme);
                         }}
                     >
-                        <Switch pointerEvents="none" value={isDarkTheme} />
+                        <Switch
+                            pointerEvents="none"
+                            value={isDarkTheme}
+                            onValueChange={() => {
+                                toggleTheme(isDarkTheme);
+                            }}
+                        />
                     </TouchableRipple>
                 </View>
                 <View style={styles.eachSetting}>
