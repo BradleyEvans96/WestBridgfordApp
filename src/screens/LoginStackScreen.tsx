@@ -18,9 +18,16 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useAuth } from '../context/AuthContext';
-import Users from '../model/Users';
-import { ClubLogo } from '../components/atoms/images';
+import Users from '../data/Users';
+import { BlueClubLogo, RedClubLogo } from '../components/atoms/images';
 import Colours from '../themes/colors';
+
+const teamID = 2;
+const blueTeamID = 1;
+
+function isBlueTeam(activeTeamID: number): Boolean {
+    return activeTeamID === blueTeamID;
+}
 
 const LoginStack = createStackNavigator();
 
@@ -101,14 +108,27 @@ const LoginScreen: React.FC = () => {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-            <View style={styles.container}>
+            <View
+                style={[
+                    styles.container,
+                    {
+                        backgroundColor: isBlueTeam(teamID)
+                            ? Colours.WEST_BRIDGFORD_BLUE
+                            : Colours.WEST_BRIDGFORD_RED
+                    }
+                ]}
+            >
                 <StatusBar backgroundColor="#009387" barStyle="light-content" />
                 <Animatable.View
                     style={styles.header}
                     animation="zoomIn"
                     duration={1500}
                 >
-                    <ClubLogo size={heightLogo} />
+                    {isBlueTeam(teamID) ? (
+                        <BlueClubLogo size={heightLogo} />
+                    ) : (
+                        <RedClubLogo size={heightLogo} />
+                    )}
                 </Animatable.View>
                 <Animatable.View style={styles.footer} animation="fadeInUpBig">
                     <Text style={styles.text_footer}> Email </Text>
@@ -194,8 +214,7 @@ const heightLogo = height * 0.2;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: Colours.WEST_BRIDGFORD_BLUE
+        flex: 1
     },
     header: {
         flex: 1,

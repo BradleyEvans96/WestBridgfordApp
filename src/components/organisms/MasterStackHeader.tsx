@@ -5,7 +5,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Stripes from '../atoms/Stripes';
 import colors from '../../themes/colors';
 import { Navigation } from '../../types/types';
-import { ClubLogo } from '../atoms/images';
+import { RedClubLogo, BlueClubLogo } from '../atoms/images';
+
+const teamID = 2;
+const blueTeamID = 1;
+
+function isBlueTeam(activeTeamID: number): Boolean {
+    return activeTeamID === blueTeamID;
+}
 
 const Stack = createStackNavigator();
 
@@ -30,7 +37,11 @@ const StackScreen: React.FC<Props> = ({
                     <Stripes
                         width={windowWidth}
                         numberOfStripes={3}
-                        backgroundColour={colors.WEST_BRIDGFORD_BLUE}
+                        backgroundColour={
+                            isBlueTeam(teamID)
+                                ? colors.WEST_BRIDGFORD_BLUE
+                                : colors.WEST_BRIDGFORD_RED
+                        }
                         stripeColour={colors.WEST_BRIDGFORD_BLACK}
                     />
                 ),
@@ -44,7 +55,11 @@ const StackScreen: React.FC<Props> = ({
                 ),
                 headerRight: () => (
                     <View style={styles.headerIcon}>
-                        <ClubLogo size={30} />
+                        {isBlueTeam(teamID) ? (
+                            <BlueClubLogo size={45} />
+                        ) : (
+                            <RedClubLogo size={45} />
+                        )}
                     </View>
                 )
             }}
@@ -80,6 +95,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     headerIcon: {
-        padding: 20
+        paddingRight: 2,
+        paddingBottom: 5
     }
 });
