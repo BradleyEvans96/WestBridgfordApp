@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.CHAT,
@@ -20,9 +21,9 @@ export const DrawerItem: DrawerItemViewModel = {
 };
 
 const ChatScreen: React.FC = () => (
-    <View style={styles.ChatScreen}>
+    <ScreenContainer scrollEnabled={false}>
         <Text> Chat Screen </Text>
-    </View>
+    </ScreenContainer>
 );
 
 const ChatStackScreen: React.FC<{
@@ -36,11 +37,3 @@ const ChatStackScreen: React.FC<{
 );
 
 export default ChatStackScreen;
-
-const styles = StyleSheet.create({
-    ChatScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

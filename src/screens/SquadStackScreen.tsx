@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.SQUAD,
@@ -16,9 +17,9 @@ export const DrawerItem: DrawerItemViewModel = {
 };
 
 const SquadScreen: React.FC = () => (
-    <View style={styles.SquadScreen}>
-        <Text> Squad Screen </Text>
-    </View>
+    <ScreenContainer>
+        <Text>Squad Screen</Text>
+    </ScreenContainer>
 );
 
 const SquadStackScreen: React.FC<{
@@ -32,11 +33,3 @@ const SquadStackScreen: React.FC<{
 );
 
 export default SquadStackScreen;
-
-const styles = StyleSheet.create({
-    SquadScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

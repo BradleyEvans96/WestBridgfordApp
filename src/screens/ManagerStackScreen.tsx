@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.MANAGER,
@@ -20,9 +21,9 @@ export const DrawerItem: DrawerItemViewModel = {
 };
 
 const ManagerScreen: React.FC = () => (
-    <View style={styles.HomeScreen}>
-        <Text> I am a manager </Text>
-    </View>
+    <ScreenContainer>
+        <Text>Manager Screen</Text>
+    </ScreenContainer>
 );
 
 const ManagerStackScreen: React.FC<{
@@ -35,11 +36,3 @@ const ManagerStackScreen: React.FC<{
     />
 );
 export default ManagerStackScreen;
-
-const styles = StyleSheet.create({
-    HomeScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

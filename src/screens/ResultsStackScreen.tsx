@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.RESULTS,
@@ -20,9 +21,9 @@ export const DrawerItem: DrawerItemViewModel = {
 };
 
 const ResultsScreen: React.FC = () => (
-    <View style={styles.ResultsScreen}>
-        <Text> Results </Text>
-    </View>
+    <ScreenContainer>
+        <Text>Results</Text>
+    </ScreenContainer>
 );
 
 const ResultsStackScreen: React.FC<{
@@ -36,11 +37,3 @@ const ResultsStackScreen: React.FC<{
 );
 
 export default ResultsStackScreen;
-
-const styles = StyleSheet.create({
-    ResultsScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

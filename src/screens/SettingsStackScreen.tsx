@@ -7,6 +7,7 @@ import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { useTheme, Theme } from '../context/ThemeContext';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.SETTINGS,
@@ -30,8 +31,8 @@ const SettingsScreen: React.FC = () => {
     };
 
     return (
-        <View style={styles.screen}>
-            <View style={styles.SettingsScreen}>
+        <ScreenContainer>
+            <View style={styles.settings}>
                 <View style={styles.eachSetting}>
                     <Text> Dark Theme</Text>
                     <TouchableRipple
@@ -39,16 +40,14 @@ const SettingsScreen: React.FC = () => {
                             toggleTheme(isDarkTheme);
                         }}
                     >
-                        <View pointerEvents="none">
-                            <Switch value={isDarkTheme} />
-                        </View>
+                        <Switch pointerEvents="none" value={isDarkTheme} />
                     </TouchableRipple>
                 </View>
                 <View style={styles.eachSetting}>
                     <Text> Setting Two</Text>
                 </View>
             </View>
-        </View>
+        </ScreenContainer>
     );
 };
 
@@ -65,14 +64,9 @@ const SettingsStackScreen: React.FC<{
 export default SettingsStackScreen;
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1
-    },
-    SettingsScreen: {
-        justifyContent: 'flex-start',
-        flexDirection: 'column',
-        marginLeft: 20,
-        marginRight: 20
+    settings: {
+        width: '100%',
+        height: '100%'
     },
     eachSetting: {
         flexDirection: 'row',
@@ -81,6 +75,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#f4f4f4',
         borderBottomWidth: 1,
         paddingTop: 20,
-        paddingBottom: 20
+        paddingBottom: 20,
+        width: '100%'
     }
 });
