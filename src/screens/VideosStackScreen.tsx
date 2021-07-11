@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
 import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.VIDEOS,
@@ -16,9 +17,9 @@ export const DrawerItem: DrawerItemViewModel = {
 };
 
 const VideoScreen: React.FC = () => (
-    <View style={styles.VideoScreen}>
-        <Text>Videos</Text>
-    </View>
+    <ScreenContainer>
+        <Text>Video Screen</Text>
+    </ScreenContainer>
 );
 
 const VideoStackScreen: React.FC<{
@@ -32,11 +33,3 @@ const VideoStackScreen: React.FC<{
 );
 
 export default VideoStackScreen;
-
-const styles = StyleSheet.create({
-    VideoScreen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StyleSheet, Text, View, ScrollView } from 'react-native';
+import { Button, Text } from 'react-native';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
 import MasterStackHeader from '../components/organisms/MasterStackHeader';
@@ -7,6 +7,7 @@ import { Navigation } from '../types/types';
 import AppScreen from './AppScreen';
 import FixtureCard from '../components/molecules/FixtureCard';
 import Fixtures from '../data/Fixtures';
+import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.HOME,
@@ -19,27 +20,20 @@ export const DrawerItem: DrawerItemViewModel = {
 const HomeScreen: React.FC<{
     navigation?: Navigation;
 }> = ({ navigation }) => (
-    <View style={styles.HomeScreen}>
-        <ScrollView>
-            <View style={styles.ContentContainer}>
-                {Fixtures.map((fixture) => (
-                    <FixtureCard
-                        fixtureDetails={fixture}
-                        key={fixture.matchID}
-                    />
-                ))}
-                <Text> This is the Home Screen </Text>
-                <Button
-                    title="Tester Page"
-                    onPress={() => navigation?.navigate('Tester')}
-                />
-                <Button
-                    title="Press to be the manager"
-                    onPress={() => navigation?.navigate('Manager')}
-                />
-            </View>
-        </ScrollView>
-    </View>
+    <ScreenContainer scrollEnabled={false}>
+        {Fixtures.map((fixture) => (
+            <FixtureCard fixtureDetails={fixture} key={fixture.matchID} />
+        ))}
+        <Text> This is the Home Screen </Text>
+        <Button
+            title="Tester Page"
+            onPress={() => navigation?.navigate('Tester')}
+        />
+        <Button
+            title="Press to be the manager"
+            onPress={() => navigation?.navigate('Manager')}
+        />
+    </ScreenContainer>
 );
 
 const HomeStackScreen: React.FC<{
@@ -52,14 +46,3 @@ const HomeStackScreen: React.FC<{
     />
 );
 export default HomeStackScreen;
-
-const styles = StyleSheet.create({
-    HomeScreen: {
-        flex: 1
-    },
-    ContentContainer: {
-        margin: '5%',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});
