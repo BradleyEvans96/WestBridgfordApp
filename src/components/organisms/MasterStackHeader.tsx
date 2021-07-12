@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Stripes from '../atoms/Stripes';
+import Stripes from '@components/atoms/Stripes';
+import { RedClubLogo, BlueClubLogo } from '@components/atoms/images';
 import colors from '../../themes/colors';
 import { Navigation } from '../../types/types';
-import { RedClubLogo, BlueClubLogo } from '../atoms/images';
 
 const teamID = 2;
 const blueTeamID = 1;

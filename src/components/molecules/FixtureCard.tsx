@@ -1,8 +1,8 @@
 import { Fixture, Team } from '@joshpav/westbridgfordappapi';
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import Card from '../atoms/Card';
-import { DefaultClubLogo } from '../atoms/images';
+import Card from '@components/atoms/Card';
+import { DefaultClubLogo } from '@components/atoms/images';
 
 export type Props = {
     fixtureDetails: Fixture;

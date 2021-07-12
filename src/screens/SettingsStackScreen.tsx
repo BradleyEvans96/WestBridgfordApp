@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, TouchableRipple, Switch } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { DrawerItemViewModel } from '../components/molecules/DrawerItemGroup';
-import MasterStackHeader from '../components/organisms/MasterStackHeader';
-import { useTheme, Theme } from '../context/ThemeContext';
+import { DrawerItemViewModel } from '@components/molecules/DrawerItemGroup';
+import MasterStackHeader from '@components/organisms/MasterStackHeader';
+import AppScreen from '@screens/AppScreen';
+import ScreenContainer from '@screens/ScreenContainer';
+import { useTheme, Theme } from '@context/ThemeContext';
 import { Navigation } from '../types/types';
-import AppScreen from './AppScreen';
-import ScreenContainer from './ScreenContainer';
 
 export const DrawerItem: DrawerItemViewModel = {
     label: AppScreen.SETTINGS,

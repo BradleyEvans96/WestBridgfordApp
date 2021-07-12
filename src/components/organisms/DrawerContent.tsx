@@ -3,11 +3,11 @@ import { View, StyleSheet } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Drawer } from 'react-native-paper';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '@context/AuthContext';
+import UserInfoHeader from '@components/molecules/UserInfoHeader';
+import DrawerItemGroup from '@components/molecules/DrawerItemGroup';
+import { APP_SCREENS } from '@screens/index';
 import { Navigation, User, Role } from '../../types/types';
-import UserInfoHeader from '../molecules/UserInfoHeader';
-import DrawerItemGroup from '../molecules/DrawerItemGroup';
-import { APP_SCREENS } from '../../screens';
 
 const appUser: User = new User('Bradley', 'Evans', [Role.PLAYER, Role.MANAGER]);
 

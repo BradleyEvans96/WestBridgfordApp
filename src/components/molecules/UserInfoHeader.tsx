@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Caption, Title } from 'react-native-paper';
+import { DefaultProfilePicture } from '@components/atoms/images';
 import { User } from '../../types/types';
-import { DefaultProfilePicture } from '../atoms/images';
 
 interface IProps {
     user: User;

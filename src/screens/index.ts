@@ -1,36 +1,36 @@
 import AvailabilityStackScreen, {
     DrawerItem as AvailabilityDrawerItem
-} from './AvailabilityStackScreen';
+} from '@screens/AvailabilityStackScreen';
 import ChatStackScreen, {
     DrawerItem as ChatDrawerItem
-} from './ChatStackScreen';
+} from '@screens/ChatStackScreen';
 import FixturesStackScreen, {
     DrawerItem as FixturesDrawerItem
-} from './FixturesStackScreen';
+} from '@screens/FixturesStackScreen';
 import HomeStackScreen, {
     DrawerItem as HomeDrawerItem
-} from './HomeStackScreen';
+} from '@screens/HomeStackScreen';
 import LeagueStackScreen, {
     DrawerItem as LeagueDrawerItem
-} from './LeagueStackScreen';
+} from '@screens/LeagueStackScreen';
 import ManagerStackScreen, {
     DrawerItem as ManagerDrawerItem
-} from './ManagerStackScreen';
+} from '@screens/ManagerStackScreen';
 import ProfileStackScreen, {
     DrawerItem as ProfileDrawerItem
-} from './ProfileStackScreen';
+} from '@screens/ProfileStackScreen';
 import ResultsStackScreen, {
     DrawerItem as ResultsDrawerItem
-} from './ResultsStackScreen';
+} from '@screens/ResultsStackScreen';
 import SettingsStackScreen, {
     DrawerItem as SettingsDrawerItem
-} from './SettingsStackScreen';
+} from '@screens/SettingsStackScreen';
 import SquadStackScreen, {
     DrawerItem as SquadDrawerItem
-} from './SquadStackScreen';
+} from '@screens/SquadStackScreen';
 import VideosStackScreen, {
     DrawerItem as VideosDrawerItem
-} from './VideosStackScreen';
+} from '@screens/VideosStackScreen';
 
 export {
     AvailabilityStackScreen,

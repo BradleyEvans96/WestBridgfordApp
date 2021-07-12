@@ -17,9 +17,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useAuth } from '../context/AuthContext';
+import { BlueClubLogo, RedClubLogo } from '@components/atoms/images';
+import { useAuth } from '@context/AuthContext';
 import Users from '../data/Users';
-import { BlueClubLogo, RedClubLogo } from '../components/atoms/images';
 import Colours from '../themes/colors';
 
 const teamID = 2;

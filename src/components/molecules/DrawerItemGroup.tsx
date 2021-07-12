@@ -2,8 +2,8 @@ import React from 'react';
 import { DrawerItem } from '@react-navigation/drawer';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import { NavigationState } from '@react-navigation/native';
+import AppScreen from '@screens/AppScreen';
 import { Navigation, User } from '../../types/types';
-import AppScreen from '../../screens/AppScreen';
 
 export type DrawerItemViewModel = {
     label: string;

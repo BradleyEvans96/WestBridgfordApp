@@ -30,6 +30,7 @@ module.exports = {
         "react/jsx-uses-vars": "error",
         "react/jsx-uses-react": "error",
         "@typescript-eslint/no-explicit-any": "error",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "@typescript-eslint/no-unused-vars": [
 			"warn",
 			{ 
