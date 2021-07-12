@@ -5,6 +5,8 @@ import { DrawerItemViewModel } from '@components/molecules/DrawerItemGroup';
 import MasterStackHeader from '@components/organisms/MasterStackHeader';
 import AppScreen from '@screens/AppScreen';
 import ScreenContainer from '@screens/ScreenContainer';
+import { PlayerFixture } from '@joshpav/westbridgfordappapi';
+import Api from '@helpers/api';
 import { Navigation } from '../types/types';
 
 export const DrawerItem: DrawerItemViewModel = {
@@ -16,11 +18,29 @@ export const DrawerItem: DrawerItemViewModel = {
     )
 };
 
-const Availability: React.FC = () => (
-    <ScreenContainer>
-        <Text>Availability</Text>
-    </ScreenContainer>
-);
+const Availability: React.FC = () => {
+    const playerId = '1';
+    const teamId = '1';
+
+    const [availability, setAvailability] = React.useState(
+        [] as PlayerFixture[]
+    );
+
+    React.useEffect(() => {
+        new Api().getAvailability(teamId, playerId, setAvailability);
+    }, [teamId]);
+
+    return (
+        <ScreenContainer>
+            <Text>Availability</Text>
+            {availability.map((fixture) => (
+                <Text
+                    key={fixture.fixtureId}
+                >{`Date: ${fixture.date} Available: ${fixture.availability}`}</Text>
+            ))}
+        </ScreenContainer>
+    );
+};
 
 const AvailabilityStackScreen: React.FC<{
     navigation: Navigation;
