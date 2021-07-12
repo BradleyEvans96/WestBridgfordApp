@@ -1,9 +1,9 @@
-import { AvailabilityStatus } from '../components/molecules/FixtureCard';
+import { AvailabilityStatus } from '@joshpav/westbridgfordappapi';
 
 const PlayerExample = [
     {
         playerName: 'Bradley Evans',
-        availability: AvailabilityStatus.available,
+        availability: AvailabilityStatus.AVAILABLE,
         playedGame: true,
         numberScored: 1,
         numberAssisted: 2,
@@ -11,7 +11,7 @@ const PlayerExample = [
     },
     {
         playerName: 'Bradley Evans',
-        availability: AvailabilityStatus.unavailable,
+        availability: AvailabilityStatus.UNAVAILABLE,
         playedGame: false,
         numberScored: 0,
         numberAssisted: 0,
