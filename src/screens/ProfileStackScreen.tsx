@@ -5,6 +5,8 @@ import { DrawerItemViewModel } from '@components/molecules/DrawerItemGroup';
 import MasterStackHeader from '@components/organisms/MasterStackHeader';
 import AppScreen from '@screens/AppScreen';
 import ScreenContainer from '@screens/ScreenContainer';
+import { Player } from '@joshpav/westbridgfordappapi';
+import Api from '@helpers/api';
 import { Navigation } from '../types/types';
 
 export const DrawerItem: DrawerItemViewModel = {
@@ -20,11 +22,22 @@ export const DrawerItem: DrawerItemViewModel = {
     )
 };
 
-const ProfileScreen: React.FC = () => (
-    <ScreenContainer>
-        <Text>Profile</Text>
-    </ScreenContainer>
-);
+const ProfileScreen: React.FC = () => {
+    const playerId = '1';
+
+    const [player, setPlayer] = React.useState({} as Player);
+
+    React.useEffect(() => {
+        new Api().getPlayer(playerId, setPlayer);
+    }, [playerId]);
+
+    return (
+        <ScreenContainer>
+            <Text>Profile</Text>
+            <Text>{JSON.stringify(player)}</Text>
+        </ScreenContainer>
+    );
+};
 
 const ProfileStackScreen: React.FC<{
     navigation: Navigation;

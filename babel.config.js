@@ -9,7 +9,8 @@ module.exports = (api) => {
                     alias: {
                         '@components': './src/components',
                         '@screens': './src/screens',
-                        '@context': './src/context'
+                        '@context': './src/context',
+                        '@helpers': './src/helpers'
                     }
                 }
             ]

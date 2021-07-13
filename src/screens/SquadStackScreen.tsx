@@ -5,6 +5,8 @@ import MasterStackHeader from '@components/organisms/MasterStackHeader';
 import { DrawerItemViewModel } from '@components/molecules/DrawerItemGroup';
 import AppScreen from '@screens/AppScreen';
 import ScreenContainer from '@screens/ScreenContainer';
+import Api from '@helpers/api';
+import { Player } from '@joshpav/westbridgfordappapi';
 import { Navigation } from '../types/types';
 
 export const DrawerItem: DrawerItemViewModel = {
@@ -16,11 +18,24 @@ export const DrawerItem: DrawerItemViewModel = {
     )
 };
 
-const SquadScreen: React.FC = () => (
-    <ScreenContainer>
-        <Text>Squad Screen</Text>
-    </ScreenContainer>
-);
+const SquadScreen: React.FC = () => {
+    const teamId = '1';
+
+    const [squad, setSquad] = React.useState([] as Player[]);
+
+    React.useEffect(() => {
+        new Api().getSquad(teamId, setSquad);
+    }, [teamId]);
+
+    return (
+        <ScreenContainer>
+            <Text>Squad Screen</Text>
+            {squad.map((player) => (
+                <Text key={player.playerId}>{JSON.stringify(player)}</Text>
+            ))}
+        </ScreenContainer>
+    );
+};
 
 const SquadStackScreen: React.FC<{
     navigation: Navigation;
