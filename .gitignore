@@ -12,5 +12,8 @@ web-build/
 .idea/
 .vscode/
 
+.env
+!example.env
+
 # macOS
 .DS_Store

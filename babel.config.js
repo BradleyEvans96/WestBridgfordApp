@@ -13,7 +13,8 @@ module.exports = (api) => {
                         '@helpers': './src/helpers'
                     }
                 }
-            ]
+            ],
+            ['inline-dotenv']
         ]
     };
 };

@@ -5,12 +5,12 @@ import { Dispatch, SetStateAction } from 'react';
 export default class Api {
     private baseUrl: string;
 
-    // Will need this code for calling the Azure functions running in the cloud
-    private code: string | null;
+    // Authentication code required for calling functions in the cloud
+    private code: string | undefined;
 
     constructor() {
         this.baseUrl = Constants.manifest?.extra?.apiEndpoint;
-        this.code = null;
+        this.code = process.env.API_AUTH_CODE;
     }
 
     getPlayer = async (
@@ -32,7 +32,7 @@ export default class Api {
         playerId: string,
         dispatcher: Dispatch<SetStateAction<PlayerFixture[]>>
     ): Promise<void> => {
-        await this.get(`"${teamId}"/fixtures?playerId=${playerId}`, dispatcher);
+        await this.get(`"${teamId}"/fixtures`, dispatcher, { playerId });
     };
 
     getSquad = async (
@@ -49,13 +49,28 @@ export default class Api {
      */
     private get = async <T>(
         path: string,
-        dispatcher: Dispatch<SetStateAction<T>>
+        dispatcher: Dispatch<SetStateAction<T>>,
+        queryParameters: Record<string, string> = {}
     ): Promise<void> => {
-        const codeQueryParam = this.code ? `&code=${this.code}` : '';
-
         const response = await fetch(
-            `${this.baseUrl}/${path}${codeQueryParam}`
+            `${this.baseUrl}/${path}${this.getQueryParamString(
+                queryParameters
+            )}`
         );
         dispatcher(await response.json());
     };
+
+    private getQueryParamString(params: Record<string, string>): string {
+        const queryString = Object.entries(
+            Object.assign(params, this.getDefaultQueryParams())
+        )
+            .map((param) => `${param[0]}=${param[1]}`)
+            .join('&');
+
+        return queryString ? `?${queryString}` : '';
+    }
+
+    private getDefaultQueryParams() {
+        return this.code ? { code: this.code } : {};
+    }
 }
