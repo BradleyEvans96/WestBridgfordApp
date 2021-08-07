@@ -27,7 +27,6 @@ const FixtureScreen: React.FC = () => {
     React.useEffect(() => {
         new Api().getFixtures(teamId, setFixtures);
     }, [teamId]);
-
     return (
         <ScreenContainer>
             <Text>Fixture Screen</Text>
